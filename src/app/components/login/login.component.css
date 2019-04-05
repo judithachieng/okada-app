@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+.background-image {
+  background-image: url("/assets/images/boda-boda.jpg");
+  height:100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: block;
+  text-align: center;
+}
+.container {
+  position: absolute;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 433px;
+    padding: 16px;
+    background-color: #FBDC8D;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: white;
+}
+
+.btn {
+  background-color: #A431A7;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+
