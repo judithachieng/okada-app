@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,17 +9,19 @@ import { NavComponent } from './components/shared/nav/nav.component';
 import { RidersComponent } from './components/riders/riders.component';
 import { UsersComponent } from './components/users/users.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavComponent,
     RidersComponent,
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
