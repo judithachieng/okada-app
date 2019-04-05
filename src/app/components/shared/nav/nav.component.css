@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+.nav-bar {
+  width: 100%;
+  margin: 0 auto;
+  background: #FBDC8D;
+}
+
+.nav-container {
+  width: 90% ;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 20px 0;
+
+}
+
+.nav {
+justify-self: end;
+}
+
+.nav a {
+  padding: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Roboto Mono', monospace;
+
+}
+
+.active-link {
+  color: #A431A7;
+}

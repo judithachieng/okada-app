@@ -1,3 +1,10 @@
-<p>
-  nav works!
-</p>
+<div class="nav-bar">
+  <div class="nav-container">
+      <div class="logo"></div>
+      <div class="nav">
+        <a [routerLink]="['/users']" routerLinkActive="active-link" >users</a>
+        <a [routerLink]="['/riders']"  routerLinkActive="active-link" >riders</a>
+        <a [routerLink]="['/login']"  (click)="logout()" routerLinkActive="active-link">logout</a>
+      </div>
+  </div>
+</div>

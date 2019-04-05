@@ -27,7 +27,6 @@ login(username: string, password: string) {
     return this.http.post<any>(`${this.baseUrl}acl/token`, {accountName : username, accountSecret: password})
         .pipe(map(user => {
             // Check if there is a jwt token and login user
-            console.log('judy', user);
             if (user && user.data.tokenInfo.token) {
                 // store the token in local storage so that the user stays loggedin
                 localStorage.setItem('currentUser', JSON.stringify(user));
