@@ -33,8 +33,6 @@ export class LoginComponent implements OnInit {
 
     this.authService.logout();
 
-    // this.returnUrl = this.route.snapshot.queryParams[`returnUrl`] || '/';
-    console.log(this.returnUrl);
   }
 
   get formFields() {
@@ -51,7 +49,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.formFields.username.value, this.formFields.password.value)
             .subscribe(
                 data => {
-                    console.log(data);
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {

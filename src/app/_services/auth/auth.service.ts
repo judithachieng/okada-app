@@ -39,7 +39,7 @@ login(username: string, password: string) {
 
 logout() {
     // When a user logs out remove user from localstorage.
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
     this.currentUserSubject.next(null);
 }
 
