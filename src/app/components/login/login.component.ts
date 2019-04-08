@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/_services/auth/auth.service';
+import { Constants } from 'src/app/constants';
 
 
 
@@ -14,14 +15,14 @@ import { AuthService } from 'src/app/_services/auth/auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   formSubmitted = false;
-  returnUrl =  '/riders';
   error: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private constants: Constants
 
   ) { }
 
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.formFields.username.value, this.formFields.password.value)
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    this.router.navigate([this.constants.RIDERS_ROUTE]);
                 },
                 error => {
                     this.error = error;

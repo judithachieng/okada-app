@@ -30,10 +30,9 @@ describe('AuthService', () => {
             success: true,
             message: 'login was successful'
           };
-          const user = new User('254777893465', 'testpassword');
           let response = null;
 
-          authService.Login(user).subscribe(
+          authService.login('+254720242707', 'password').subscribe(
             (receivedResponse: any) => {
               response = receivedResponse;
             },
@@ -59,10 +58,9 @@ describe('AuthService', () => {
             success: false,
             message: 'email and password combination is wrong'
           };
-          const user = new User('255890356', 'wrongPassword');
           let response = null;
 
-          authService.Login(user).subscribe(
+          authService.login('255890356', 'wrongPassword').subscribe(
             (receivedResponse: any) => {
               response = receivedResponse;
             },

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../_services/auth/auth.service';
+import { Constants } from '../constants';
 
 
 
@@ -18,8 +19,8 @@ false the route is blocked.
 export class AuthGuard implements CanActivate {
   constructor(
     private router: Router,
-    private authService: AuthService
-
+    private authService: AuthService,
+    private constants: Constants
   ) {}
 
 
@@ -33,7 +34,7 @@ export class AuthGuard implements CanActivate {
     }
 
     // redirect user if they are not logged in
-    this.router.navigate([`/login`]);
+    this.router.navigate([this.constants.LOGIN_ROUTE]);
     return false;
   }
 

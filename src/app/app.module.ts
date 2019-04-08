@@ -9,6 +9,7 @@ import { NavComponent } from './components/shared/nav/nav.component';
 import { RidersComponent } from './components/riders/riders.component';
 import { UsersComponent } from './components/users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Constants } from './constants';
 
 
 @NgModule({
@@ -26,7 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    Constants
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
