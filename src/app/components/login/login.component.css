@@ -45,12 +45,18 @@ input[type=text], input[type=password] {
 .btn {
   background-color: #A431A7;
   color: white;
-  padding: 10px 49px;
+  padding: 1px 49px !important;
   border: none;
   cursor: pointer;
   opacity: 0.9;
   color:#FBDC8D;
   border-radius: 3px;
 }
+
+.btn p{
+  font-size: inherit;
+}
+
+
 
 

@@ -5,7 +5,6 @@ import { catchError } from 'rxjs/operators';
 
 import { AuthService } from '../_services/auth/auth.service';
 import { Constants } from '../constants';
-import { constants } from 'os';
 
 
 /*
@@ -22,7 +21,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   ) { }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(catchError(err => {
-        if (err.status === constants.UNAUTHORISED ) {
+        if (err.status === this.constants.UNAUTHORISED ) {
             // auto logout if 401 response returned from api
             this.authService.logout();
             location.reload(true);

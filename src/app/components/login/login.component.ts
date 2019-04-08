@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   formSubmitted = false;
   error: any;
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,18 +42,22 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit() {
+    this.isLoading = true;
     this.formSubmitted = true;
 
     if (this.loginForm.invalid) {
+      this.isLoading = false;
       return;
     }
 
     this.authService.login(this.formFields.username.value, this.formFields.password.value)
             .subscribe(
                 data => {
+                    this.isLoading = false;
                     this.router.navigate([this.constants.RIDERS_ROUTE]);
                 },
                 error => {
+                    this.isLoading = false;
                     this.error = error;
                 });
 
