@@ -18,7 +18,6 @@ export class RidersComponent implements OnInit {
     this.riderService.getRiders()
     .subscribe( data => {
         this.riders = data.items;
-        console.log(this.riders);
     });
   }
 }

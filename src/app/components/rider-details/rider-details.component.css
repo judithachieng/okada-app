@@ -1,41 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 .container {
   width: 100%;
   margin: 0 auto;
 }
-
-.container .header {
-  width: 80%;
-  margin: 2% auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.container .header .search {
-  display: flex;
-  flex-direction: row;
-}
-
-.container .header .search input {
-  border-radius: 3px;
-  border: 1px solid #C6C0C0;
-  padding: 8px;
-  margin-right: 8px;
-  font-family: 'Roboto Mono', monospace;
-}
-
-.container .header .search button {
-  background: #FBDC8D;
-  border-radius: 3px;
-  color: #A431A7;
-  font-family: 'Roboto Mono', monospace;
-  font-style: normal;
-  font-weight: 600;
-  border: none;
-}
-
-
 
 .container .riders {
   width: 80%;
@@ -75,12 +41,41 @@
   font-family: 'Roboto Mono', monospace;
   padding: 10px;
   flex: auto;
-  text-align: justify;
+  text-align: left;
 }
 
-.container .riders .table-item span.actions fa {
-  padding: 4px;
+.container .rider-detail {
+  width: 80%;
+  margin: 2% auto;
+  display: grid;
+  grid-template-columns: 150px auto auto;
 }
 
+.container .rider-detail .profile {
+  width: 150px;
+  height: 150px;
+  background: #A431A7;
+}
 
+.container .rider-detail .details {
+  margin-left: 2%;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.container .rider-detail .actions {
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .rider-detail .actions button {
+  background: #A431A7;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  font-family: 'Roboto Mono', monospace;
+  color: #FBDC8D;
+  border: none;
+  margin: 4px;
+  font-size: 18px;
+}
 

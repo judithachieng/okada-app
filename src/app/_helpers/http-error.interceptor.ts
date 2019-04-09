@@ -23,7 +23,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('we are here');
     return next.handle(request).pipe(catchError(err => {
         if (err.status === this.constants.UNAUTHORISED ) {
             // auto logout if 401 response returned from api

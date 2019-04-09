@@ -30,7 +30,7 @@ export class RidersService {
 
   // Update rider
 updateRider(rider: Rider) {
-  return this.http.put(`this.constants.RIDERS/${id}`, rider);
+  return this.http.put(`this.constants.RIDERS/${rider.id}`, rider);
 }
 
   // Delete a rider

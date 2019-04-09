@@ -1,2 +1,36 @@
 <app-nav></app-nav>
+<div class = "container">
+    <div class="header">
+      <div class="search">
+        <input type="text" placeholder="Search" />
+        <button>new rider</button>
+      </div>
+    </div>
+    <div class="riders table">
+      <div class="table-header">
+        <span>no.</span>
+        <span>name</span>
+        <span>gender</span>
+        <span>license</span>
+        <span>phone</span>
+        <span>status</span>
+        <span>action</span>
+      </div>
+      <div *ngFor="let rider of riders; index as i" class="table-item" [routerLink]="['', rider.id]">
+          <span>{{i}}</span>
+          <span>{{rider.fullname}}</span>
+          <span class="gender">{{rider.gender}}</span>
+          <span>{{rider.licenseId}}</span>
+          <span>{{rider.msisdn}}</span>
+          <span *ngIf="rider.active">ACTIVE</span>
+          <span *ngIf="!rider.active">INACTIVE</span>
+          <span class="actions">
+              <fa name="eye"></fa>
+              <fa name="pencil"></fa>
+              <fa name="trash"></fa>
+          </span>
+      </div>
+    </div>
+</div>
+
 
