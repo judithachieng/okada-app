@@ -6,6 +6,5 @@ export class User {
   password:	string;
   confirmedPassword:	string;
   country:	string;
-  token: string;
-
+  tokenInfo: any;
 }
