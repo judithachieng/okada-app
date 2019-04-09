@@ -11,7 +11,6 @@ export class Constants {
   LOGIN: string = this.baseUrl + 'acl/token';
   RIDERS: string = this.baseUrl + 'riders';
 
-  
   // ROUTE NAMES
   LOGIN_ROUTE = '/login';
   RIDERS_ROUTE = '/riders';

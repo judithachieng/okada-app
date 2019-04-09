@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RidersService } from 'src/app/_services/riders/riders.service';
+import { Constants } from 'src/app/constants';
+
 
 @Component({
   selector: 'app-riders',
@@ -8,8 +10,10 @@ import { RidersService } from 'src/app/_services/riders/riders.service';
 })
 export class RidersComponent implements OnInit {
  riders: [];
-  constructor(private riderService: RidersService) { }
 
+  constructor(private riderService: RidersService, private constants: Constants) { }
+
+  riderUrl = this.constants.RIDERS_ROUTE;
   ngOnInit() {
     this.getRiders();
   }

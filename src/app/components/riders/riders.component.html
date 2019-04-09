@@ -16,7 +16,7 @@
         <span>status</span>
         <span>action</span>
       </div>
-      <div *ngFor="let rider of riders; index as i" class="table-item" [routerLink]="['', rider.id]">
+      <div *ngFor="let rider of riders; index as i" class="table-item" [routerLink]="[riderUrl, rider.id]">
           <span>{{i}}</span>
           <span>{{rider.fullname}}</span>
           <span class="gender">{{rider.gender}}</span>
@@ -25,7 +25,7 @@
           <span *ngIf="rider.active">ACTIVE</span>
           <span *ngIf="!rider.active">INACTIVE</span>
           <span class="actions">
-              <fa name="eye"></fa>
+              <fa name="eye" [routerLink]="[riderUrl, rider.id]"></fa>
               <fa name="pencil"></fa>
               <fa name="trash"></fa>
           </span>
