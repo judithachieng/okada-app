@@ -6,7 +6,57 @@
         <button (click)="onCreate()">new rider</button>
       </div>
     </div>
-    <div class="riders table">
+
+    <div class="mat-elevation-z8">
+      <mat-table [dataSource]="listData" >
+          <ng-container matColumnDef="no">
+            <mat-header-cell *matHeaderCellDef>no</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.index}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="fullName">
+              <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.fullname}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="gender">
+              <mat-header-cell *matHeaderCellDef>gender</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="license">
+              <mat-header-cell *matHeaderCellDef>license</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.licenseId}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="phone">
+              <mat-header-cell *matHeaderCellDef>phone</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.msisdn}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef>status</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.active ? 'Active' : 'Inactive'}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+              Loading Data.....
+            </mat-footer-cell>
+          </ng-container>
+          <ng-container matColumnDef="nodata">
+              <mat-footer-cell *matFooterCellDef colspan="6">
+                No Data.....
+              </mat-footer-cell>
+            </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+          <mat-row *matRowDef=" let row; columns: displayedColumns;" ></mat-row>
+          <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+          <mat-footer-row *matFooterRowDef="['nodata']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+        </mat-table>
+    </div>
+    <!-- <div class="riders table">
       <div class="table-header">
         <span>no.</span>
         <span>name</span>
@@ -31,9 +81,9 @@
                   <fa name="trash" (click)="onDelete(rider.id)"></fa>
               </span>
           </div>
-      </ng-container>
+      </ng-container> -->
 
-    </div>
+    <!-- </div> -->
 </div>
 
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RidersService } from 'src/app/_services/riders/riders.service';
 import { Constants } from 'src/app/constants';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatTableDataSource } from '@angular/material';
+
 import { RidersFormComponent } from '../riders-form/riders-form.component';
 import { RidersModalService } from '../shared/riders-modal.service';
 import { EditModalService } from '../shared/edit-modal.service';
@@ -24,10 +25,13 @@ export class RidersComponent implements OnInit {
               public ridersModalService: RidersModalService,
               public editModalService: EditModalService
               ) { }
+    listData: MatTableDataSource<any>;
+    displayedColumns: string[] = [ 'fullName', 'gender' , 'phone', 'status', 'actions'];
 
   riderUrl = this.constants.RIDERS_ROUTE;
   ngOnInit() {
     this.getRiders();
+
   }
 
 
@@ -35,7 +39,10 @@ export class RidersComponent implements OnInit {
     this.riderService.getRiders()
     .subscribe( data => {
         this.riders = data.items;
+        this.listData = new MatTableDataSource(this.riders);
+        console.log(this.listData);
     });
+
   }
 
   onCreate() {

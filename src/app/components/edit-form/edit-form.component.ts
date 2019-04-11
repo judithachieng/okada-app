@@ -25,11 +25,11 @@ export class EditFormComponent implements OnInit {
   }
 
   onClear() {
-    this.dialogRef.close();
+    this.editModalService.form.reset();
+    this.onClose();
   }
 
   onSubmit() {
-    console.log(this.editModalService.form.value);
     this.ridersService.updateRider(this.editModalService.form.get('$key').value, this.editModalService.form.value).subscribe((data: {}) => {
     this.router.navigate(['/riders']);
     this.notificationService.success(':: Rider Updated Successfully');
@@ -38,6 +38,7 @@ export class EditFormComponent implements OnInit {
 }
 
 onClose() {
+  this.editModalService.form.reset();
   this.dialogRef.close();
 }
 
