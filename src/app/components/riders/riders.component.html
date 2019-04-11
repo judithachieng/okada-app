@@ -3,7 +3,7 @@
     <div class="header">
       <div class="search">
         <input type="text" placeholder="Search" />
-        <button>new rider</button>
+        <button (click)="onCreate()">new rider</button>
       </div>
     </div>
     <div class="riders table">
@@ -16,20 +16,23 @@
         <span>status</span>
         <span>action</span>
       </div>
-      <div *ngFor="let rider of riders; index as i" class="table-item" [routerLink]="[riderUrl, rider.id]">
-          <span>{{i}}</span>
-          <span>{{rider.fullname}}</span>
-          <span class="gender">{{rider.gender}}</span>
-          <span>{{rider.licenseId}}</span>
-          <span>{{rider.msisdn}}</span>
-          <span *ngIf="rider.active">ACTIVE</span>
-          <span *ngIf="!rider.active">INACTIVE</span>
-          <span class="actions">
-              <fa name="eye" [routerLink]="[riderUrl, rider.id]"></fa>
-              <fa name="pencil"></fa>
-              <fa name="trash"></fa>
-          </span>
-      </div>
+      <ng-container *ngFor="let rider of riders; index as i" >
+          <div *ngIf="!rider.deleted" class="table-item" >
+              <span>{{i}}</span>
+              <span>{{rider.fullname}}</span>
+              <span class="gender">{{rider.gender}}</span>
+              <span>{{rider.licenseId}}</span>
+              <span>{{rider.msisdn}}</span>
+              <span *ngIf="rider.active">ACTIVE</span>
+              <span *ngIf="!rider.active">INACTIVE</span>
+              <span class="actions">
+                  <fa name="eye" [routerLink]="[riderUrl, rider.id]"></fa>
+                  <fa name="pencil" (click)="onEdit(rider)"></fa>
+                  <fa name="trash" (click)="onDelete(rider.id)"></fa>
+              </span>
+          </div>
+      </ng-container>
+
     </div>
 </div>
 

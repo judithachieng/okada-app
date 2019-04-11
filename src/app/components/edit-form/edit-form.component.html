@@ -1,0 +1,41 @@
+<h2>Update rider</h2>
+<form [formGroup]="editModalService.form" class="normal-form" (ngSubmit)="onSubmit()">
+    <div class="controls-container">
+        <input type="hidden" formControlName="$key">
+      <!-- <mat-form-field> -->
+          <input type="text" formControlName="fullname"  placeholder="fullname">
+          <mat-error *ngIf="editModalService.form.controls['fullname'].errors?.required">This Field is Mandatory.</mat-error>
+      <!-- </mat-form-field> -->
+      <!-- <mat-form-field> -->
+          <input type="text" formControlName="gender"  placeholder="Gender">
+          <mat-error *ngIf="editModalService.form.controls['gender'].errors?.required">This Field is Mandatory.</mat-error>
+      <!-- </mat-form-field> -->
+      <!-- <mat-form-field> -->
+          <input type="text" formControlName="licenseId"  placeholder="Licence Id">
+          <mat-error *ngIf="editModalService.form.controls['licenseId'].errors?.required">This Field is Mandatory.</mat-error>
+      <!-- </mat-form-field> -->
+      <!-- <mat-form-field> -->
+          <input type="text" formControlName="country"  placeholder="Country Code">
+          <mat-error *ngIf="editModalService.form.controls['country'].errors?.required">This Field is Mandatory.</mat-error>
+          <mat-error *ngIf="editModalService.form.controls['country'].errors?.maxLength">Maximum 2 characters.</mat-error>
+      <!-- </mat-form-field> -->
+      <!-- <mat-form-field> -->
+          <input type="text" formControlName="msisdn"  placeholder="Phone">
+          <mat-error *ngIf="editModalService.form.controls['msisdn'].errors?.required">This Field is Mandatory.</mat-error>
+      <!-- </mat-form-field> -->
+        <!-- <mat-form-field> -->
+          <input type="date" formControlName="dateOfBirth"  placeholder="Date of Birth">
+          <mat-error *ngIf="editModalService.form.controls['dateOfBirth'].errors?.required">This Field is Mandatory.</mat-error>
+        <!-- </mat-form-field> -->
+          <input type="text" formControlName="address"  placeholder="address">
+          <mat-error *ngIf="editModalService.form.controls['address'].errors?.required">This Field is Mandatory.</mat-error>
+          <input type="text" formControlName="postalBox"  placeholder="Postal Box">
+          <mat-error *ngIf="editModalService.form.controls['postalBox'].errors?.required">This Field is Mandatory.</mat-error>
+          <div class="button-row">
+              <button mat-raised-button type="submit" class="add-button" >Add</button>
+              <button matt-raised-button class="cancel-button" click="onClose()">Cancel</button>
+          </div>
+
+    </div>
+  </form>
+

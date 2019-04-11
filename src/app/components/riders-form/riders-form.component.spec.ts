@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatConfirmDialogComponent } from './mat-confirm-dialog.component';
+import { RidersFormComponent } from './riders-form.component';
 
-describe('MatConfirmDialogComponent', () => {
-  let component: MatConfirmDialogComponent;
-  let fixture: ComponentFixture<MatConfirmDialogComponent>;
+describe('RidersFormComponent', () => {
+  let component: RidersFormComponent;
+  let fixture: ComponentFixture<RidersFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatConfirmDialogComponent ]
+      declarations: [ RidersFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatConfirmDialogComponent);
+    fixture = TestBed.createComponent(RidersFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
