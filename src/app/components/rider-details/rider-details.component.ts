@@ -29,8 +29,6 @@ getRiderById() {
     .subscribe( res => {
       this.data = res;
       this.rider = this.data.data;
-      console.log(this.rider = this.data.data);
-
     });
 }
 
