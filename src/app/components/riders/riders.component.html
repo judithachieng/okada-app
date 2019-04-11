@@ -36,6 +36,8 @@
           <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef>actions</mat-header-cell>
             <mat-cell *matCellDef="let row">
+
+            <button mat-icon-button [routerLink]="[riderUrl, row.id]"><mat-icon>visibility</mat-icon></button>
             <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
             <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
             </mat-cell>
@@ -55,7 +57,7 @@
           <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
           <mat-footer-row *matFooterRowDef="['nodata']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
         </mat-table>
-        <mat-paginator [pageSizeOptions]="[5,10, 25, 100]" [pageSize]="5"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5,10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
     </div>
     <!-- <div class="riders table">
       <div class="table-header">
