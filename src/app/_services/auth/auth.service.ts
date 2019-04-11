@@ -10,8 +10,7 @@ import { Constants } from '../../constants';
   providedIn: 'root'
 })
 export class AuthService {
-  // private currentUserSubject: BehaviorSubject<User>;
-  // public currentUser: Observable<User>;
+  isLoggedIn = false;
 
   constructor(
     private constant: Constants,
@@ -26,13 +25,12 @@ export class AuthService {
 
 login(username: string, password: string) {
     return this.http.post<any>(this.constant.LOGIN, {accountName : username, accountSecret: password})
-        .pipe(map(_res => {
+        .pipe(map(res => {
             // Check if there is a jwt token and login user
-            if (_res && _res.data.tokenInfo.token) {
-                // store the token in local storage so that the user stays loggedin
-                localStorage.setItem('token', _res.data.tokenInfo.token);
-                // this.currentUserSubject.next(_res.data);
-                return _res;
+            if (res && res.data.tokenInfo.token) {
+                localStorage.setItem('token', res.data.tokenInfo.token);
+                this.isLoggedIn = true;
+                return res;
             }
         },
         error => {}
@@ -42,6 +40,7 @@ login(username: string, password: string) {
 logout() {
     // When a user logs out remove user from localstorage.
     localStorage.removeItem('token');
+    this.isLoggedIn = false;
 }
 
 }

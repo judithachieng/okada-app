@@ -15,10 +15,14 @@ import { UsersComponent } from './components/users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Constants } from './constants';
 import { RidersService} from './_services/riders/riders.service';
+
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { HttpErrorInterceptor} from './_helpers/http-error.interceptor';
 import { RiderDetailsComponent } from './components/rider-details/rider-details.component';
-import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-confirm-dialog.component';
+import { RidersFormComponent } from './components/riders-form/riders-form.component';
+import { RidersModalService } from './components/shared/riders-modal.service';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-c
     RidersComponent,
     UsersComponent,
     RiderDetailsComponent,
-    MatConfirmDialogComponent,
+    RidersFormComponent,
+    EditFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,9 +46,14 @@ import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-c
     BrowserAnimationsModule,
     MaterialModule
   ],
+  entryComponents: [
+    RidersFormComponent,
+    EditFormComponent
+  ],
   providers: [
     Constants,
     RidersService,
+    RidersModalService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass : JwtInterceptor,
