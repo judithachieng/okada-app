@@ -5,16 +5,19 @@ import { FormGroup, FormControl, Validator, Validators} from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
-export class RidersModalService {
+export class EditModalService {
 
   constructor() { }
   form: FormGroup = new FormGroup({
+    $key: new FormControl(null),
     fullname: new FormControl('', Validators.required),
     gender: new FormControl('', Validators.required),
     licenseId: new FormControl('', Validators.required),
     country: new FormControl('', [Validators.required, Validators.maxLength(2)]),
     msisdn: new FormControl('', Validators.required),
-    pinNumber: new FormControl('', [Validators.required, Validators.maxLength(4)]),
+    dateOfBirth: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    postalBox: new FormControl('', Validators.required),
   });
 
   InitializeFormGroup() {
@@ -29,12 +32,15 @@ export class RidersModalService {
   }
   populateForm(rider) {
     this.form.setValue({
+      $key: rider.id,
       fullname: rider.fullname,
       gender: rider.gender,
       licenseId: rider.licenseId,
       country: rider.country,
       msisdn: rider.msisdn,
-      pinNumber: '****',
+      dateOfBirth: rider.dateOfBirth,
+      address: rider.address,
+      postalBox: rider.postalBox,
     });
   }
 }
