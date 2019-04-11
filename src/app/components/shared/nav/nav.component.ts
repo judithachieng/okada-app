@@ -10,14 +10,14 @@ import { AuthService } from 'src/app/_services/auth/auth.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  currentUser: User;
+  // currentUser: this.authService.;
 
   constructor(
     private router: Router,
     private authService: AuthService
   ) {
-    this.authService.currentUser.subscribe( data => this.currentUser = data
-    );
+    // this.authService.currentUser.subscribe( data => this.currentUser = data
+    // );
   }
 
   logout() {

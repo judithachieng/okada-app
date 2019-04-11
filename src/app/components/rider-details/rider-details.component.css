@@ -1,0 +1,81 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container .riders {
+  width: 80%;
+  margin: 2% auto;
+}
+
+.container .riders .table-header{
+  width: 100%;
+  margin: 2% auto;
+  background: #A431A7;
+  display: flex;
+  flex-direction: row;
+}
+
+.container .riders .table-header span {
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Roboto Mono', monospace;
+  padding: 10px;
+  flex: auto;
+}
+
+.container .riders .table-item {
+  width: 100%;
+  margin: 0% auto;
+  display: flex;
+  flex-direction: row;
+  background: #F5F5F5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  margin-bottom: 11px;
+}
+
+.container .riders .table-item span {
+  color: #222;
+  font-size: 18px;
+  font-family: 'Roboto Mono', monospace;
+  padding: 10px;
+  flex: auto;
+  text-align: left;
+}
+
+.container .rider-detail {
+  width: 80%;
+  margin: 2% auto;
+  display: grid;
+  grid-template-columns: 150px auto auto;
+}
+
+.container .rider-detail .profile {
+  width: 150px;
+  height: 150px;
+  background: #A431A7;
+}
+
+.container .rider-detail .details {
+  margin-left: 2%;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.container .rider-detail .actions {
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .rider-detail .actions button {
+  background: #A431A7;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  font-family: 'Roboto Mono', monospace;
+  color: #FBDC8D;
+  border: none;
+  margin: 4px;
+  font-size: 18px;
+}
+

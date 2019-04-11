@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     this.isLoading = false;
-                    this.router.navigate([this.constants.RIDERS_ROUTE]);
+                    this.router.navigate(['/riders']);
                 },
                 error => {
                     this.isLoading = false;

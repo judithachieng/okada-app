@@ -1,0 +1,54 @@
+/* .mat-form-field {
+  display: inline-block;
+  width: 244px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  border-radius: 2px;
+  background: #FFFFFF;
+  border: 1px solid #BFBCBC;
+  border-radius: 3px;
+} */
+
+.controls-container {
+  margin: 100px;
+}
+input {
+  width: 244px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  border-radius: 2px;
+  background: #FFFFFF;
+  border: 1px solid #BFBCBC;
+  border-radius: 3px;
+  display: block;
+}
+button {
+  font-family: 'Roboto Mono', monospace;
+  width: 120px;
+}
+.add-button
+{
+  background:#A431A7;
+  color: #FBDC8D;
+  margin-right: 30px;
+  height: 30px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.cancel-button{
+  background: #C4C4C4;
+  height: 30px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+h2 {
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+}
+a {
+  
+}

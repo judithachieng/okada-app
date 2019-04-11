@@ -13,15 +13,15 @@ if the user is logged in
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-    constructor(private authService: AuthService) { }
-
+    constructor(private authService: AuthService) {
+    }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt
-        const currentUser = this.authService.currentUserValue;
-        if (currentUser && currentUser.token) {
+        const token = localStorage.getItem('token');
+        if (token) {
             request = request.clone({
                 setHeaders: {
-                    Authorization: `Bearer ${currentUser.token}`
+                    Authorization: `Bearer ${token}`
                 }
             });
         }
