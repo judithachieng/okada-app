@@ -29,6 +29,7 @@ export class RidersFormComponent implements OnInit {
   onClear() {
     this.ridersModalService.form.reset();
     this.dialogRef.close();
+    this.router.navigate(['/riders']);
   }
 
   onSubmit() {

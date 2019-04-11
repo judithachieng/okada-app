@@ -10,8 +10,8 @@
     <div class="mat-elevation-z8">
       <mat-table [dataSource]="listData" matSort>
           <ng-container matColumnDef="no">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>no</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.index}}</mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>no.</mat-header-cell>
+            <mat-cell *matCellDef="let element; index as i ">{{i+1}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="fullName">
               <mat-header-cell *matHeaderCellDef mat-sort-header>name</mat-header-cell>

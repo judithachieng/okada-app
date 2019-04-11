@@ -26,7 +26,7 @@ export class RidersComponent implements OnInit {
               public editModalService: EditModalService
               ) { }
     listData: MatTableDataSource<any>;
-    displayedColumns: string[] = [ 'fullName', 'gender' , 'phone', 'status', 'actions'];
+    displayedColumns: string[] = [ 'no', 'fullName', 'gender' , 'phone', 'status', 'actions'];
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
