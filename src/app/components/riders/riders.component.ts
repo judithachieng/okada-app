@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RidersService } from 'src/app/_services/riders/riders.service';
 import { Constants } from 'src/app/constants';
-import { MatDialog, MatDialogConfig, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 import { RidersFormComponent } from '../riders-form/riders-form.component';
 import { RidersModalService } from '../shared/riders-modal.service';
@@ -27,6 +27,8 @@ export class RidersComponent implements OnInit {
               ) { }
     listData: MatTableDataSource<any>;
     displayedColumns: string[] = [ 'fullName', 'gender' , 'phone', 'status', 'actions'];
+    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
   riderUrl = this.constants.RIDERS_ROUTE;
   ngOnInit() {
@@ -40,7 +42,8 @@ export class RidersComponent implements OnInit {
     .subscribe( data => {
         this.riders = data.items;
         this.listData = new MatTableDataSource(this.riders);
-        console.log(this.listData);
+        this.listData.sort = this.sort;
+        this.listData.paginator = this.paginator;
     });
 
   }
