@@ -33,16 +33,23 @@ export class RidersFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.ridersService.createRider(this.ridersModalService.form.value).subscribe((data: {}) => {
-    this.router.navigate(['/riders']);
+    console.log('I am here submit');
+    if (this.ridersModalService.form.valid) {
+      this.ridersService.createRider(this.ridersModalService.form.value).subscribe((data: {}) => {
+        this.router.navigate(['/riders']);
+        this.ridersModalService.form.reset();
+        this.ridersModalService.InitializeFormGroup();
+        this.notificationService.success(':: Rider Added Successfully');
+        this.onClose();
+      });
+    }
+  }
+
+  onClose() {
+    console.log('I am here clear');
     this.ridersModalService.form.reset();
     this.ridersModalService.InitializeFormGroup();
-    this.notificationService.success(':: Rider Added Successfully');
-    this.onClose();
-  });
-}
+    this.dialogRef.close();
+  }
 
-onClose() {
-  this.dialogRef.close();
-}
 }

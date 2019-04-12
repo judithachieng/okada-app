@@ -53,7 +53,7 @@ export class RidersComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.height = '70%';
+    dialogConfig.height = 'auto';
     this.dialog.open(RidersFormComponent, dialogConfig);
   }
 

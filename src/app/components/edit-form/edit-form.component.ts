@@ -39,7 +39,6 @@ export class EditFormComponent implements OnInit {
 }
 
 onClose() {
-  this.editModalService.form.reset();
   this.dialogRef.close();
 }
 
