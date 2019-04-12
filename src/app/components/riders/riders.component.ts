@@ -7,6 +7,7 @@ import { RidersFormComponent } from '../riders-form/riders-form.component';
 import { RidersModalService } from '../shared/riders-modal.service';
 import { EditModalService } from '../shared/edit-modal.service';
 import { EditFormComponent } from '../edit-form/edit-form.component';
+import { NotificationService } from '../shared/notification.service';
 
 
 
@@ -23,7 +24,8 @@ export class RidersComponent implements OnInit {
               private constants: Constants,
               private dialog: MatDialog,
               public ridersModalService: RidersModalService,
-              public editModalService: EditModalService
+              public editModalService: EditModalService,
+              private notificationService: NotificationService
               ) { }
     listData: MatTableDataSource<any>;
     displayedColumns: string[] = [ 'no', 'fullName', 'gender' , 'phone', 'status', 'actions'];
@@ -68,9 +70,11 @@ export class RidersComponent implements OnInit {
   }
   onDelete(id) {
     this.riderService.deleteRider(id);
+    this.getRiders();
     if (window.confirm('Are you sure, you want to delete Rider?')) {
       this.riderService.deleteRider(id).subscribe(data => {
         this.getRiders();
+        this.notificationService.warn('Rider Deleted successfully');
       });
     }
   }

@@ -7,6 +7,7 @@ import { RidersService } from 'src/app/_services/riders/riders.service';
 import { NotificationService } from '../shared/notification.service';
 
 
+
 @Component({
   selector: 'app-riders-form',
   templateUrl: './riders-form.component.html',
@@ -20,7 +21,8 @@ export class RidersFormComponent implements OnInit {
     private ridersService: RidersService,
     private router: Router,
     public dialogRef: MatDialogRef<RidersFormComponent>,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+
     ) { }
 
   ngOnInit() {
