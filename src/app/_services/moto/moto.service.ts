@@ -21,10 +21,10 @@ export class MotoService {
     return this.http.get(this.constants.RIDERS + '/' + riderId + '/motos');
   }
 
-  // // Create Moto
-  // createMoto(moto: Moto) {
-  //   return this.http.post(this.constants.MOTOS, moto);
-  // }
+  // Create Moto
+  createMoto(id, moto: Moto) {
+    return this.http.post(this.constants.RIDERS + '/' + id + '/motos', moto);
+  }
 
 
 

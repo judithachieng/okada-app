@@ -11,9 +11,9 @@
         <p>{{ rider['country'] }}</p>
       </div>
       <div class="actions">
-        <button>Add Moto</button>
+        <button (click)="onCreate()" >Add Moto</button>
         <button>Edit</button>
-        <button>Delete</button>
+        <button>Delete </button>
       </div>
     </div>
     <app-moto [id]="id"></app-moto>

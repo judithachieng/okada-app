@@ -1,0 +1,17 @@
+<h2>Add Moto</h2>
+<form [formGroup]="motoModalService.form" class="normal-form" (ngSubmit)="onSubmit()">
+  <div class="controls-container">
+        <input type="text" formControlName="numberPlate"  placeholder="Number Plate">
+        <mat-error *ngIf="motoModalService.form.controls['numberPlate'].errors?.required">This Field is Mandatory.</mat-error>
+        <input type="text" formControlName="registrationDocument"  placeholder="Reg. Document">
+        <mat-error *ngIf="motoModalService.form.controls['registrationDocument'].errors?.required">This Field is Mandatory.</mat-error>
+        <input type="text" formControlName="motoMake"  placeholder="Moto Make">
+        <mat-error *ngIf="motoModalService.form.controls['motoMake'].errors?.required">This Field is Mandatory.</mat-error>
+        <input type="text" formControlName="motoColor"  placeholder="Moto Color">
+        <mat-error *ngIf="motoModalService.form.controls['motoColor'].errors?.required">This Field is Mandatory.</mat-error>
+        <div class="button-row">
+            <button mat-raised-button type="submit" class="add-button" [disabled]="motoModalService.form.invalid">Add</button>
+            <button type="button" class="cancel-button" (click)="onClose()">Cancel</button>
+        </div>
+  </div>
+</form>

@@ -25,6 +25,7 @@ import { EditFormComponent } from './components/edit-form/edit-form.component';
 import { MotoComponent } from './components/moto/moto.component';
 import { EditModalService } from './components/shared/edit-modal.service';
 import { MotoService } from './_services/moto/moto.service';
+import { MotoFormComponent } from './components/moto-form/moto-form.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { MotoService } from './_services/moto/moto.service';
     RidersFormComponent,
     EditFormComponent,
     MotoComponent,
+    MotoFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { MotoService } from './_services/moto/moto.service';
   ],
   entryComponents: [
     RidersFormComponent,
-    EditFormComponent
+    EditFormComponent,
+    MotoFormComponent
   ],
   providers: [
     Constants,

@@ -14,7 +14,7 @@
         </ng-container>
         <ng-container matColumnDef="used">
             <mat-header-cell *matHeaderCellDef mat-sort-header>status</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.used}}</mat-cell>
+            <mat-cell *matCellDef="let element">{{element.used ? 'Used' : 'New'}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="loading">
             <mat-footer-cell *matFooterCellDef colspan="6">

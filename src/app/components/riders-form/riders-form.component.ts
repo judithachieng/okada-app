@@ -28,12 +28,6 @@ export class RidersFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClear() {
-    this.ridersModalService.form.reset();
-    this.dialogRef.close();
-    this.router.navigate(['/riders']);
-  }
-
   onSubmit() {
     console.log('I am here submit');
     if (this.ridersModalService.form.valid) {
