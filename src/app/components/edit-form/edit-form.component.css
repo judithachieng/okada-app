@@ -11,7 +11,7 @@
 } */
 
 .controls-container {
-  margin: 100px;
+  margin: 30px 40px 10px 40px;
 }
 input {
   width: 244px;
@@ -48,7 +48,5 @@ button {
 h2 {
   font-family: 'Roboto Mono', monospace;
   text-align: center;
-}
-a {
-  
+  margin: 0;
 }
