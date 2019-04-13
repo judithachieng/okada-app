@@ -1,6 +1,7 @@
 <h2>Add Moto</h2>
 <form [formGroup]="motoModalService.form" class="normal-form" (ngSubmit)="onSubmit()">
   <div class="controls-container">
+        <input type="hidden" formControlName="$key">
         <input type="text" formControlName="numberPlate"  placeholder="Number Plate">
         <mat-error *ngIf="motoModalService.form.controls['numberPlate'].errors?.required">This Field is Mandatory.</mat-error>
         <input type="text" formControlName="registrationDocument"  placeholder="Reg. Document">

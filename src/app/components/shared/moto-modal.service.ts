@@ -9,6 +9,7 @@ export class MotoModalService {
 
   constructor() { }
   form: FormGroup = new FormGroup({
+    $key: new FormControl(null),
     numberPlate: new FormControl('', Validators.required),
     registrationDocument: new FormControl('', Validators.required),
     motoMake: new FormControl('', Validators.required),
@@ -17,23 +18,20 @@ export class MotoModalService {
 
   InitializeFormGroup() {
     this.form.setValue({
+    $key: null,
     numberPlate: 'Number Plate',
     registrationDocument: 'Reg. Document',
     motoMake: ' Moto Make',
     motoColor: 'Moto Color',
     });
   }
-  // populateForm(rider) {
-  //   this.form.setValue({
-  //     $key: rider.id,
-  //     fullname: rider.fullname,
-  //     gender: rider.gender,
-  //     licenseId: rider.licenseId,
-  //     country: rider.country,
-  //     msisdn: rider.msisdn,
-  //     dateOfBirth: rider.dateOfBirth,
-  //     address: 'ONE STREET',
-  //     postalBox: '98056',
-  //   });
-  // }
+  populateForm(moto) {
+    this.form.setValue({
+    $key: moto.id,
+    numberPlate: moto.numberPlate,
+    registrationDocument: moto.registrationDocument,
+    motoMake: moto.motoMake,
+    motoColor: moto.motoColor,
+    });
+  }
 }

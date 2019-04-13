@@ -17,7 +17,6 @@ import { Constants } from './constants';
 import { RidersService} from './_services/riders/riders.service';
 
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
-import { HttpErrorInterceptor} from './_helpers/http-error.interceptor';
 import { RiderDetailsComponent } from './components/rider-details/rider-details.component';
 import { RidersFormComponent } from './components/riders-form/riders-form.component';
 import { RidersModalService } from './components/shared/riders-modal.service';
@@ -26,6 +25,7 @@ import { MotoComponent } from './components/moto/moto.component';
 import { EditModalService } from './components/shared/edit-modal.service';
 import { MotoService } from './_services/moto/moto.service';
 import { MotoFormComponent } from './components/moto-form/moto-form.component';
+import { MotoModalService } from './components/shared/moto-modal.service';
 
 
 @NgModule({
@@ -63,11 +63,12 @@ import { MotoFormComponent } from './components/moto-form/moto-form.component';
     RidersModalService,
     EditModalService,
     MotoService,
+    MotoModalService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass : JwtInterceptor,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

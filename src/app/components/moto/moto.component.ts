@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MotoService } from '../../_services/moto/moto.service';
 import { Constants } from 'src/app/constants';
-import { MatDialog, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatDialogConfig } from '@angular/material';
+import { NotificationService } from '../shared/notification.service';
+import { MotoModalService } from '../shared/moto-modal.service';
+import { MotoFormComponent } from '../moto-form/moto-form.component';
 
 @Component({
   selector: 'app-moto',
@@ -16,23 +19,20 @@ motos: [];
   constructor(
     private  motoService: MotoService,
     private constants: Constants,
+    private notificationService: NotificationService,
+    private motoModalService: MotoModalService,
+    private dialog: MatDialog,
+    // private motoFormComponent: MotoFormComponent,
   ) { }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = [ 'motoMake', 'numberPlate', 'motoColor', 'used'];
+  displayedColumns: string[] = [ 'motoMake', 'numberPlate', 'motoColor', 'used', 'actions'];
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit() {
  this.getMoto();
   }
-  // getRiderId() {
-  //   this.route.params.subscribe((params: { [x: string]: any; }) => {
-  //     const key = 'id';
-  //     this.id = params[key];
-  //     return this.id;
-  //   });
-  // }
 
   getMoto() {
     console.log(this.id);
@@ -46,6 +46,14 @@ motos: [];
       });
   }
 
-
+  onEdit(moto) {
+    this.motoModalService.populateForm(moto);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = 'auto';
+    dialogConfig.width ='100px';
+    this.dialog.open(MotoFormComponent, dialogConfig);
+  }
 
 }

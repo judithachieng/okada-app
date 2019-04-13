@@ -26,10 +26,7 @@ export class MotoService {
     return this.http.post(this.constants.RIDERS + '/' + id + '/motos', moto);
   }
 
-
-
-  // // Delete a rider
-  // deleteMoto(motoId: number) {
-  //   return this.http.delete(this.constants.MOTOS + '/' + motoId);
-  // }
+  updateMoto(id, motoId, moto: Moto) {
+    return this.http.put(this.constants.RIDERS + '/' + id + '/motos/' + motoId, moto);
+  }
 }

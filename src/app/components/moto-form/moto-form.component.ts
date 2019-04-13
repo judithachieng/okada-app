@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './moto-form.component.html',
   styleUrls: ['./moto-form.component.css']
 })
+
+
 export class MotoFormComponent implements OnInit {
 id: number;
   constructor(
@@ -31,17 +33,28 @@ id: number;
 
 
   onSubmit() {
-    console.log('I am here submit', this.id);
     if (this.motoModalService.form.valid) {
-      this.motoService.createMoto(this.id, this.motoModalService.form.value).subscribe((data: {}) => {
-        // this.router.navigate(['riders/' + this.id]);
+      if (!this.motoModalService.form.get('$key').value){
+        this.motoService.createMoto(this.id, this.motoModalService.form.value).subscribe((data: {}) => {
+          // this.router.navigate(['riders/' + this.id]);
+          this.motoModalService.form.reset();
+          this.motoModalService.InitializeFormGroup();
+          this.notificationService.success(':: Moto Added Successfully');
+          this.onClose();
+        });
+      } else {
+        this.motoService.updateMoto(this.id, this.motoModalService.form.get('$key').value, this.motoModalService.form.value);
         this.motoModalService.form.reset();
         this.motoModalService.InitializeFormGroup();
-        this.notificationService.success(':: Moto Added Successfully');
+        this.notificationService.success(':: Submitted successfully');
         this.onClose();
-      });
+      }
+
+      }
+
+
     }
-  }
+
 
   onClose() {
     this.motoModalService.form.reset();

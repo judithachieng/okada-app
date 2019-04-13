@@ -70,10 +70,8 @@ export class RidersComponent implements OnInit {
   }
   onDelete(id) {
     this.riderService.deleteRider(id);
-    this.getRiders();
     if (window.confirm('Are you sure, you want to delete Rider?')) {
       this.riderService.deleteRider(id).subscribe(data => {
-        this.getRiders();
         this.notificationService.warn('Rider Deleted successfully');
       });
     }
