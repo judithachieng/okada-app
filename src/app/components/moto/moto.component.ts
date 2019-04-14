@@ -35,14 +35,12 @@ motos: [];
   }
 
   getMoto() {
-    console.log(this.id);
     this.motoService.getMotos(this.id)
       .subscribe( (res: any) => {
         this.motos = res.items;
         this.listData = new MatTableDataSource(this.motos);
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
-        console.log(this.motos);
       });
   }
 
