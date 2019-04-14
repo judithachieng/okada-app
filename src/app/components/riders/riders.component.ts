@@ -20,12 +20,13 @@ export class RidersComponent implements OnInit {
  riders: [];
 
 
-  constructor(private riderService: RidersService,
-              private constants: Constants,
-              private dialog: MatDialog,
-              public ridersModalService: RidersModalService,
-              public editModalService: EditModalService,
-              private notificationService: NotificationService
+  constructor(
+          private riderService: RidersService,
+          private constants: Constants,
+          private dialog: MatDialog,
+          public ridersModalService: RidersModalService,
+          public editModalService: EditModalService,
+          private notificationService: NotificationService
               ) { }
     listData: MatTableDataSource<any>;
     displayedColumns: string[] = [ 'no', 'fullName', 'gender' , 'phone', 'status', 'actions'];

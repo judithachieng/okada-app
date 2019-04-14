@@ -1,3 +1,65 @@
-<p>
-  users works!
-</p>
+<app-nav></app-nav>
+<div class = "container">
+    <div class="header">
+      <div class="search">
+        <input type="text" placeholder="Search" />
+        <button >new user</button>
+      </div>
+    </div>
+
+    <div class="mat-elevation-z8">
+      <mat-table [dataSource]="listData" matSort>
+          <ng-container matColumnDef="no">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>no.</mat-header-cell>
+            <mat-cell *matCellDef="let element; index as i ">{{i+1}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="firstName">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>firstname</mat-header-cell>
+              <mat-cell *matCellDef="let element" >{{element.firstName}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>lastname</mat-header-cell>
+            <mat-cell *matCellDef="let element" >{{element.lastName}}</mat-cell>
+        </ng-container>
+          <ng-container matColumnDef="gender">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>gender</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="country">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>country</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.country}}</mat-cell>
+        </ng-container>
+          <ng-container matColumnDef="phone">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>phone</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.msisdn}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>status</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.active ? 'Active' : 'Inactive'}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>actions</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+            <button mat-icon-button ><mat-icon>visibility</mat-icon></button>
+            <button mat-icon-button ><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button color="warn" ><mat-icon>delete_outline</mat-icon></button>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+              Loading Data.....
+            </mat-footer-cell>
+          </ng-container>
+          <ng-container matColumnDef="nodata">
+              <mat-footer-cell *matFooterCellDef colspan="6">
+                No Data.....
+              </mat-footer-cell>
+            </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+          <mat-row *matRowDef=" let row; columns: displayedColumns;" ></mat-row>
+          <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+          <mat-footer-row *matFooterRowDef="['nodata']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5,10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
