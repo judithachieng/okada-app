@@ -22,24 +22,19 @@ export class UsersService {
     return this.http.get(this.constants.USERS);
   }
 
-//   // Get rider by ID
 
-//   getRiderById(id: number) {
-//     return this.http.get(this.constants.RIDERS + `/` + id );
-//   }
+  // Create user
+  createUser(user: User) {
+    return this.http.post(this.constants.USERS, user);
+  }
 
-//   // Create rider
-//   createRider(rider: Rider) {
-//     return this.http.post(this.constants.RIDERS, rider);
-//   }
+  // Update a user
+updateUser(id, user: User) {
+  return this.http.put(this.constants.RIDERS + '/' + id, user);
+}
 
-//   // Update rider
-// updateRider(id, rider: Rider) {
-//   return this.http.put(this.constants.RIDERS + '/' + id, rider);
-// }
-
-//   // Delete a rider
-//   deleteRider(id: number) {
-//     return this.http.delete(this.constants.RIDERS + '/' + id);
-//   }
+  // Delete a user
+  deleteUser(id: number) {
+    return this.http.delete(this.constants.USERS + '/' + id);
+  }
 }

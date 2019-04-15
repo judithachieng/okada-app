@@ -1,4 +1,4 @@
-<h2>Add Moto</h2>
+<h2>{{motoModalService.form.controls['$key'].value?"Update Moto":"Add Moto"}}</h2>
 <form [formGroup]="motoModalService.form" class="normal-form" (ngSubmit)="onSubmit()">
   <div class="controls-container">
         <input type="hidden" formControlName="$key">

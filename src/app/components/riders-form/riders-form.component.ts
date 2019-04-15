@@ -29,7 +29,6 @@ export class RidersFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('I am here submit');
     if (this.ridersModalService.form.valid) {
       this.ridersService.createRider(this.ridersModalService.form.value).subscribe((data: {}) => {
         this.router.navigate(['/riders']);
@@ -42,7 +41,6 @@ export class RidersFormComponent implements OnInit {
   }
 
   onClose() {
-    console.log('I am here clear');
     this.ridersModalService.form.reset();
     this.ridersModalService.InitializeFormGroup();
     this.dialogRef.close();

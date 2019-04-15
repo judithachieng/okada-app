@@ -27,8 +27,7 @@ id: number;
   }
 
   ngOnInit() {
-    // this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id );
+
   }
 
 
@@ -36,7 +35,6 @@ id: number;
     if (this.motoModalService.form.valid) {
       if (!this.motoModalService.form.get('$key').value){
         this.motoService.createMoto(this.id, this.motoModalService.form.value).subscribe((data: {}) => {
-          // this.router.navigate(['riders/' + this.id]);
           this.motoModalService.form.reset();
           this.motoModalService.InitializeFormGroup();
           this.notificationService.success(':: Moto Added Successfully');

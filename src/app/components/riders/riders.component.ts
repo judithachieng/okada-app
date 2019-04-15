@@ -39,7 +39,6 @@ export class RidersComponent implements OnInit {
 
   }
 
-
   getRiders() {
     this.riderService.getRiders()
     .subscribe( data => {

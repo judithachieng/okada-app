@@ -26,6 +26,8 @@ import { EditModalService } from './components/shared/edit-modal.service';
 import { MotoService } from './_services/moto/moto.service';
 import { MotoFormComponent } from './components/moto-form/moto-form.component';
 import { MotoModalService } from './components/shared/moto-modal.service';
+import { UsersFormComponent } from './components/users-form/users-form.component';
+import { UsersModalService } from './components/shared/users-modal.service';
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { MotoModalService } from './components/shared/moto-modal.service';
     EditFormComponent,
     MotoComponent,
     MotoFormComponent,
+    UsersFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { MotoModalService } from './components/shared/moto-modal.service';
   entryComponents: [
     RidersFormComponent,
     EditFormComponent,
-    MotoFormComponent
+    MotoFormComponent,
+    UsersFormComponent,
   ],
   providers: [
     Constants,
@@ -64,6 +68,7 @@ import { MotoModalService } from './components/shared/moto-modal.service';
     EditModalService,
     MotoService,
     MotoModalService,
+    UsersModalService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass : JwtInterceptor,
