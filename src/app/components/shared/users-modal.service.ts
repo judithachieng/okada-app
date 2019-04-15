@@ -40,7 +40,7 @@ export class UsersModalService {
     msisdn: user.msisdn,
     country: user.country,
     password: 'password',
-    confirmPassword: 'password'
+    confirmPassword: 'confirm paswword'
     });
   }
 }

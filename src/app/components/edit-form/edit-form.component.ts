@@ -6,6 +6,11 @@ import { EditModalService } from '../shared/edit-modal.service';
 import { RidersService } from 'src/app/_services/riders/riders.service';
 import { NotificationService } from '../shared/notification.service';
 
+interface IDK {
+  valid: boolean;
+  rider?: any;
+}
+
 @Component({
   selector: 'app-edit-form',
   templateUrl: './edit-form.component.html',
@@ -24,22 +29,17 @@ export class EditFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClear() {
-    this.editModalService.form.reset();
-    this.onClose();
-    this.router.navigate(['/riders']);
-  }
-
   onSubmit() {
     this.ridersService.updateRider(this.editModalService.form.get('$key').value, this.editModalService.form.value).subscribe((data: {}) => {
-    this.router.navigate(['/riders']);
     this.notificationService.success(':: Rider Updated Successfully');
-    this.onClose();
+    this.onClose({valid: true, rider: this.editModalService.rider});
+  }, _err => {
+    this.notificationService.success(':: There was a problem updating data, please try again');
+    this.onClose({valid: false});
   });
 }
 
-onClose() {
-  this.dialogRef.close();
+onClose(value: IDK) {
+  this.dialogRef.close(value);
 }
-
 }

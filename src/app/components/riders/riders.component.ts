@@ -1,14 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RidersService } from 'src/app/_services/riders/riders.service';
 import { Constants } from 'src/app/constants';
-import { MatDialog, MatDialogConfig, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatTableDataSource, MatSort, MatPaginator, MatDialogRef } from '@angular/material';
 
 import { RidersFormComponent } from '../riders-form/riders-form.component';
 import { RidersModalService } from '../shared/riders-modal.service';
 import { EditModalService } from '../shared/edit-modal.service';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 import { NotificationService } from '../shared/notification.service';
-
 
 
 @Component({
@@ -18,7 +17,12 @@ import { NotificationService } from '../shared/notification.service';
 })
 export class RidersComponent implements OnInit {
  riders: [];
-
+ listData: MatTableDataSource<any> = new MatTableDataSource();
+ displayedColumns: string[] = [ 'no', 'fullName', 'gender' , 'phone', 'status', 'actions'];
+ @ViewChild(MatSort) sort: MatSort;
+ @ViewChild(MatPaginator) paginator: MatPaginator;
+ riderUrl = this.constants.RIDERS_ROUTE;
+ dialogref: MatDialogRef<EditFormComponent>;
 
   constructor(
           private riderService: RidersService,
@@ -28,15 +32,9 @@ export class RidersComponent implements OnInit {
           public editModalService: EditModalService,
           private notificationService: NotificationService
               ) { }
-    listData: MatTableDataSource<any>;
-    displayedColumns: string[] = [ 'no', 'fullName', 'gender' , 'phone', 'status', 'actions'];
-    @ViewChild(MatSort) sort: MatSort;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  riderUrl = this.constants.RIDERS_ROUTE;
   ngOnInit() {
     this.getRiders();
-
   }
 
   getRiders() {
@@ -47,7 +45,6 @@ export class RidersComponent implements OnInit {
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
     });
-
   }
 
   onCreate() {
@@ -65,7 +62,13 @@ export class RidersComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.height = '70%';
-    this.dialog.open(EditFormComponent, dialogConfig);
+    const dialogRef = this.dialog.open(EditFormComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(_val => {
+      if (_val) {
+        console.log('riders >>>', this.riders);
+        this.listData.data = this.riders;
+      }
+    });
 
   }
   onDelete(id) {
