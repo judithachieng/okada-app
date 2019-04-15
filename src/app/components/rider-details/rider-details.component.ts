@@ -41,12 +41,10 @@ export class RiderDetailsComponent implements OnInit {
 }
 
 getRiderById() {
-  console.log(this.id);
   this.riderService.getRiderById(this.id)
     .subscribe( (res: any) => {
       this.data = res;
       this.rider = this.data.data;
-      console.log(this.data);
     });
 }
 
@@ -61,6 +59,7 @@ onCreate() {
   };
   this.dialog.open(MotoFormComponent, dialogConfig);
 }
+
 
 }
 

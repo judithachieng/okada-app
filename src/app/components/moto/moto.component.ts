@@ -45,6 +45,7 @@ motos: [];
   }
 
   onEdit(moto) {
+    console.log(moto);
     this.motoModalService.populateForm(moto);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
