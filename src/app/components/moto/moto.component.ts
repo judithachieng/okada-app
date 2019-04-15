@@ -49,8 +49,8 @@ motos: [];
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.height = 'auto';
-    dialogConfig.width = '100px';
+    // dialogConfig.height = 'auto';
+    // dialogConfig.width = '100px';
     this.dialog.open(MotoFormComponent, dialogConfig);
   }
 
