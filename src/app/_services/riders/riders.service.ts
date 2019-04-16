@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Constants } from 'src/app/constants';
 import { Rider } from 'src/app/_models/rider.model';
+import { NotificationService } from 'src/app/components/shared/notification.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +21,8 @@ export class RidersService {
 
   // Get rider by ID
 
-  getRiderId(id: number) {
-    return this.http.get(`this.constants.RIDERS/${id}`);
+  getRiderById(id: number) {
+    return this.http.get(this.constants.RIDERS + `/` + id );
   }
 
   // Create rider
@@ -29,12 +31,12 @@ export class RidersService {
   }
 
   // Update rider
-updateRider(rider: Rider) {
-  return this.http.put(`this.constants.RIDERS/${rider.id}`, rider);
+updateRider(id, rider: Rider) {
+  return this.http.put(this.constants.RIDERS + '/' + id, rider);
 }
 
   // Delete a rider
   deleteRider(id: number) {
-    return this.http.delete(`this.constants.RIDERS/${id}`);
+    return this.http.delete(this.constants.RIDERS + '/' + id);
   }
 }

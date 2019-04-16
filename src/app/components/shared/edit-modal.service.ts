@@ -27,7 +27,10 @@ export class EditModalService {
     licenseId: 'KE-FG-67J',
     country: 'KE',
     msisdn: '+254786000000',
-    pinNumber: '1234'
+    pinNumber: '1234',
+    dateOfBirth: '28/12/2050',
+    address: 'ONE STREET',
+    postalBox: '98056',
     });
   }
   populateForm(rider) {
@@ -39,8 +42,8 @@ export class EditModalService {
       country: rider.country,
       msisdn: rider.msisdn,
       dateOfBirth: rider.dateOfBirth,
-      address: rider.address,
-      postalBox: rider.postalBox,
+      address: 'ONE STREET',
+      postalBox: '98056',
     });
   }
 }

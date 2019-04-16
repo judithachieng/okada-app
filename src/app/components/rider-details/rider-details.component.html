@@ -1,5 +1,4 @@
 <app-nav></app-nav>
-
 <div class = "container">
     <div class="rider-detail">
       <div class="profile">
@@ -12,23 +11,10 @@
         <p>{{ rider['country'] }}</p>
       </div>
       <div class="actions">
-        <button>Add Moto</button>
+        <button (click)="onCreate()" >Add Moto</button>
         <button>Edit</button>
-        <button>Delete</button>
+        <button>Delete </button>
       </div>
     </div>
-    <div class="riders table">
-      <div class="table-header">
-        <span>name</span>
-        <span>number plate</span>
-        <span>color</span>
-        <span>status</span>
-      </div>
-      <div class="table-item">
-          <span>Honda</span>
-          <span>GER 50</span>
-          <span>Purple</span>
-          <span class="actions">active</span>
-      </div>
-    </div>
+    <app-moto [id]="id"></app-moto>
 </div>

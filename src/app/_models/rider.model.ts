@@ -4,7 +4,7 @@ export class Rider {
   id: number;
  fullname: string;
  gender: string;
- licenceId: string;
+ licenseId: string;
  Country: string;
  msisdn: string;
  pinNumber: string;

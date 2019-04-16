@@ -27,6 +27,7 @@ export class EditFormComponent implements OnInit {
   onClear() {
     this.editModalService.form.reset();
     this.onClose();
+    this.router.navigate(['/riders']);
   }
 
   onSubmit() {
@@ -38,7 +39,6 @@ export class EditFormComponent implements OnInit {
 }
 
 onClose() {
-  this.editModalService.form.reset();
   this.dialogRef.close();
 }
 

@@ -1,17 +1,6 @@
-/* .mat-form-field {
-  display: inline-block;
-  width: 244px;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  border-radius: 2px;
-  background: #FFFFFF;
-  border: 1px solid #BFBCBC;
-  border-radius: 3px;
-} */
 
 .controls-container {
-  margin: 100px;
+  margin: 30px 40px 10px 40px;
 }
 input {
   width: 244px;
@@ -48,5 +37,6 @@ button {
 h2 {
   font-family: 'Roboto Mono', monospace;
   text-align: center;
+  margin: 0;
 }
 

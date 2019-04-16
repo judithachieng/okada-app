@@ -15,10 +15,20 @@ import { UsersComponent } from './components/users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Constants } from './constants';
 import { RidersService} from './_services/riders/riders.service';
+
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
-import { HttpErrorInterceptor} from './_helpers/http-error.interceptor';
 import { RiderDetailsComponent } from './components/rider-details/rider-details.component';
-import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-confirm-dialog.component';
+import { RidersFormComponent } from './components/riders-form/riders-form.component';
+import { RidersModalService } from './components/shared/riders-modal.service';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
+import { MotoComponent } from './components/moto/moto.component';
+import { EditModalService } from './components/shared/edit-modal.service';
+import { MotoService } from './_services/moto/moto.service';
+import { MotoFormComponent } from './components/moto-form/moto-form.component';
+import { MotoModalService } from './components/shared/moto-modal.service';
+import { UsersFormComponent } from './components/users-form/users-form.component';
+import { UsersModalService } from './components/shared/users-modal.service';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +38,11 @@ import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-c
     RidersComponent,
     UsersComponent,
     RiderDetailsComponent,
-    MatConfirmDialogComponent,
+    RidersFormComponent,
+    EditFormComponent,
+    MotoComponent,
+    MotoFormComponent,
+    UsersFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,14 +55,25 @@ import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-c
     BrowserAnimationsModule,
     MaterialModule
   ],
+  entryComponents: [
+    RidersFormComponent,
+    EditFormComponent,
+    MotoFormComponent,
+    UsersFormComponent,
+  ],
   providers: [
     Constants,
     RidersService,
+    RidersModalService,
+    EditModalService,
+    MotoService,
+    MotoModalService,
+    UsersModalService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass : JwtInterceptor,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

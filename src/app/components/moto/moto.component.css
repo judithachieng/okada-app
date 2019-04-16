@@ -1,0 +1,20 @@
+.mat-table {
+  font-family: 'Roboto Mono', monospace !important;;
+}
+
+.mat-header-row {
+  background: #A431A7 !important;
+}
+
+.mat-header-cell {
+  color: white !important;
+}
+
+.mat-elevation-z8 {
+  margin: 94px 187px;
+}
+
+mat-footer-row mat-footer-cell {
+  justify-content:  center;
+  font-style: italic;
+}
