@@ -62,11 +62,22 @@ export class RidersComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.height = '70%';
-    const dialogRef = this.dialog.open(EditFormComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(_val => {
-      if (_val) {
-        console.log('riders >>>', this.riders);
-        this.listData.data = this.riders;
+    const ref = this.dialog.open(EditFormComponent, dialogConfig);
+
+    ref.afterClosed().subscribe(res => {
+      // update the rider data
+      if (res) {
+        const sm = this.riders.map((val: any) => {
+          if (res.$key === val.id) {
+            res.id = res.$key;
+            return res;
+          }
+          val.$key = val.id;
+          return val;
+        });
+
+        this.listData = new MatTableDataSource([...sm]);
+        this.listData._updateChangeSubscription();
       }
     });
 

@@ -12,7 +12,6 @@ import { MotoFormComponent } from '../moto-form/moto-form.component';
   styleUrls: ['./moto.component.css']
 })
 export class MotoComponent implements OnInit {
-// @Input() getRiderId: any ;
 data: any;
 motos: [];
 @Input() id;
@@ -22,7 +21,6 @@ motos: [];
     private notificationService: NotificationService,
     private motoModalService: MotoModalService,
     private dialog: MatDialog,
-    // private motoFormComponent: MotoFormComponent,
   ) { }
 
   listData: MatTableDataSource<any>;
@@ -50,8 +48,6 @@ motos: [];
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    // dialogConfig.height = 'auto';
-    // dialogConfig.width = '100px';
     this.dialog.open(MotoFormComponent, dialogConfig);
   }
 
