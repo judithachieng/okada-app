@@ -5,6 +5,7 @@ import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatDialogConfig }
 import { NotificationService } from '../shared/notification.service';
 import { MotoModalService } from '../shared/moto-modal.service';
 import { MotoFormComponent } from '../moto-form/moto-form.component';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-moto',
@@ -24,7 +25,7 @@ motos: [];
   ) { }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = [ 'motoMake', 'numberPlate', 'motoColor', 'used', 'actions'];
+  displayedColumns: string[] = this.constants.MOTO_FORM_FIELDS;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
