@@ -31,23 +31,24 @@ id: number;
 
   }
 
+  resetForm() {
+    this.motoModalService.form.reset();
+    this.motoModalService.InitializeFormGroup();
+    this.notificationService.success('Submitted Successfully');
+    this.onClose();
+
+  }
+
 
   onSubmit() {
     if (this.motoModalService.form.valid) {
       if (!this.motoModalService.form.get('$key').value) {
         this.motoService.createMoto(this.id, this.motoModalService.form.value).subscribe((data: {}) => {
-          this.motoModalService.form.reset();
-          this.motoModalService.InitializeFormGroup();
-          this.notificationService.success(':: Moto Added Successfully');
-          this.onClose();
+          this.resetForm();
         });
       } else {
-        console.log(this.id);
         this.motoService.updateMoto(this.id, this.motoModalService.form.get('$key').value, this.motoModalService.form.value);
-        this.motoModalService.form.reset();
-        this.motoModalService.InitializeFormGroup();
-        this.notificationService.success(':: Submitted successfully');
-        this.onClose();
+        this.resetForm();
       }
 
       }

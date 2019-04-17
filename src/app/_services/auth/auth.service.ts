@@ -10,7 +10,6 @@ import { Constants } from '../../constants';
   providedIn: 'root'
 })
 export class AuthService {
-  isLoggedIn = false;
 
   constructor(
     private constant: Constants,
@@ -19,17 +18,12 @@ export class AuthService {
     this.http = new HttpClient(this.backend);
    }
 
-   public get currentUserValue() {
-     return localStorage.getItem('token');
-}
-
 login(username: string, password: string) {
     return this.http.post<any>(this.constant.LOGIN, {accountName : username, accountSecret: password})
         .pipe(map(res => {
             // Check if there is a jwt token and login user
             if (res && res.data.tokenInfo.token) {
                 localStorage.setItem('token', res.data.tokenInfo.token);
-                this.isLoggedIn = true;
                 return res;
             }
         },
@@ -40,7 +34,9 @@ login(username: string, password: string) {
 logout() {
     // When a user logs out remove user from localstorage.
     localStorage.removeItem('token');
-    this.isLoggedIn = false;
 }
 
+get isLoggedIn() {
+  return localStorage.getItem('token');
+}
 }

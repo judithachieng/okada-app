@@ -46,4 +46,9 @@ export class EditModalService {
       postalBox: '98056',
     });
   }
+
+
+  get rider() {
+    return this.form.value;
+  }
 }

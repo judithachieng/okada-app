@@ -5,6 +5,7 @@ import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatDialogConfig }
 import { NotificationService } from '../shared/notification.service';
 import { MotoModalService } from '../shared/moto-modal.service';
 import { MotoFormComponent } from '../moto-form/moto-form.component';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-moto',
@@ -12,7 +13,6 @@ import { MotoFormComponent } from '../moto-form/moto-form.component';
   styleUrls: ['./moto.component.css']
 })
 export class MotoComponent implements OnInit {
-// @Input() getRiderId: any ;
 data: any;
 motos: [];
 @Input() id;
@@ -22,11 +22,10 @@ motos: [];
     private notificationService: NotificationService,
     private motoModalService: MotoModalService,
     private dialog: MatDialog,
-    // private motoFormComponent: MotoFormComponent,
   ) { }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = [ 'motoMake', 'numberPlate', 'motoColor', 'used', 'actions'];
+  displayedColumns: string[] = this.constants.MOTO_FORM_FIELDS;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -45,12 +44,11 @@ motos: [];
   }
 
   onEdit(moto) {
+    console.log(moto);
     this.motoModalService.populateForm(moto);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    // dialogConfig.height = 'auto';
-    // dialogConfig.width = '100px';
     this.dialog.open(MotoFormComponent, dialogConfig);
   }
 

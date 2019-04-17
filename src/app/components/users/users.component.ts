@@ -59,7 +59,6 @@ users: [];
   }
 
   onEdit(user) {
-    console.log(user);
     this.usersModalService.populateForm(user);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
