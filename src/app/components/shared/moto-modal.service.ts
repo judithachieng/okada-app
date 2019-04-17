@@ -20,7 +20,7 @@ export class MotoModalService {
     this.form.setValue({
     $key: null,
     numberPlate: 'Number Plate',
-    registrationDocument: 'Reg. Document',
+    registrationDocument: 'Registration Document',
     motoMake: ' Moto Make',
     motoColor: 'Moto Color',
     });
