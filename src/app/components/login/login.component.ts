@@ -52,13 +52,16 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.formFields.username.value, this.formFields.password.value)
             .subscribe(
+
                 data => {
                     this.isLoading = false;
                     this.router.navigate(['/riders']);
+                    console.log('tuko');
                 },
                 error => {
                     this.isLoading = false;
                     this.error = error;
+                    console.log('tuko', error);
                 });
 
   }

@@ -22,8 +22,8 @@ login(username: string, password: string) {
     return this.http.post<any>(this.constant.LOGIN, {accountName : username, accountSecret: password})
         .pipe(map(res => {
             // Check if there is a jwt token and login user
-            if (res && res.data.tokenInfo.token) {
-                localStorage.setItem('token', res.data.tokenInfo.token);
+          if (res && res.data.token) {
+                localStorage.setItem('token', res.data.token);
                 return res;
             }
         },

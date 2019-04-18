@@ -28,12 +28,13 @@ export class EditModalService {
     country: 'KE',
     msisdn: '+254786000000',
     pinNumber: '1234',
-    dateOfBirth: '28/12/2050',
+    dateOfBirth: '28/12/2019',
     address: 'ONE STREET',
     postalBox: '98056',
     });
   }
   populateForm(rider) {
+    const DATE_OF_BIRTH = rider.dateOfBirth.split(" ")[0];
     this.form.setValue({
       $key: rider.id,
       fullname: rider.fullname,
@@ -41,9 +42,9 @@ export class EditModalService {
       licenseId: rider.licenseId,
       country: rider.country,
       msisdn: rider.msisdn,
-      dateOfBirth: rider.dateOfBirth,
-      address: 'ONE STREET',
-      postalBox: '98056',
+      dateOfBirth: DATE_OF_BIRTH || '28/12/2019',
+      address: rider.address || 'Enter address',
+      postalBox: rider.postalBox || 'Enter Postal Address',
     });
   }
 

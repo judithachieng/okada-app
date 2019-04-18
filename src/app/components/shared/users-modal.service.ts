@@ -26,9 +26,9 @@ export class UsersModalService {
     lastName: 'Lastname ',
     gender: 'Gender',
     msisdn: 'Phone Number',
-    country: 'CC',
     password: 'password',
-    confirmPassword: 'confirm password'
+    confirmPassword: 'confirm password',
+    country: 'Country Code',
     });
   }
   populateForm(user) {
@@ -38,9 +38,9 @@ export class UsersModalService {
     lastName: user.lastName,
     gender: user.gender,
     msisdn: user.msisdn,
-    country: user.country,
     password: 'password',
-    confirmPassword: 'confirm paswword'
+    confirmPassword: 'confirm paswword',
+    country: user.country,
     });
   }
 }

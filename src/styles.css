@@ -72,3 +72,8 @@ snack-bar-container.notification simple-snack-bar{
 .cdk-overlay-pane {
   height: auto !important;
 }
+
+input:focus,
+button:focus{
+  outline: 2px solid #A431A7;
+}
