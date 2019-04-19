@@ -28,6 +28,8 @@ import { MotoFormComponent } from './components/moto-form/moto-form.component';
 import { MotoModalService } from './components/shared/moto-modal.service';
 import { UsersFormComponent } from './components/users-form/users-form.component';
 import { UsersModalService } from './components/shared/users-modal.service';
+import { DriveComponent } from './components/drive/drive.component';
+import { ClientComponent } from './components/client/client.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { UsersModalService } from './components/shared/users-modal.service';
     MotoComponent,
     MotoFormComponent,
     UsersFormComponent,
+    DriveComponent,
+    ClientComponent,
   ],
   imports: [
     BrowserModule,

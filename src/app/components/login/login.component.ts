@@ -7,6 +7,7 @@ import { Constants } from 'src/app/constants';
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,6 +18,9 @@ export class LoginComponent implements OnInit {
   formSubmitted = false;
   error: any;
   isLoading = false;
+  isAdmin = false;
+  isClient = false;
+  isRider = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -55,13 +59,21 @@ export class LoginComponent implements OnInit {
 
                 data => {
                     this.isLoading = false;
-                    this.router.navigate(['/riders']);
-                    console.log('tuko');
+                    if (this.isAdmin) {
+                      this. isAdmin = false;
+                      this.router.navigate([this.constants.RIDERS_ROUTE]);
+                    } else if (this.isClient) {
+                       this. isClient = false;
+                       this.router.navigate([this.constants.CLIENT_ROUTE]);
+                    } else {
+                      this. isRider = false;
+                      this.router.navigate([this.constants.DRIVE_ROUTE]);
+                    }
                 },
                 error => {
                     this.isLoading = false;
                     this.error = error;
-                    console.log('tuko', error);
+
                 });
 
   }

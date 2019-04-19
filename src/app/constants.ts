@@ -17,6 +17,8 @@ export class Constants {
   // ROUTE NAMES
   LOGIN_ROUTE = '/login';
   RIDERS_ROUTE = '/riders';
+  CLIENT_ROUTE = '/client';
+  DRIVE_ROUTE = '/drive';
 
   // ERROR CODES
   UNAUTHORISED = 401;

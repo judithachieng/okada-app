@@ -51,12 +51,17 @@ input[type=text], input[type=password] {
   opacity: 0.9;
   color:#FBDC8D;
   border-radius: 3px;
+  margin: 10px;
+  width: 166px;
 }
 
 .btn p{
   font-size: inherit;
 }
 
+.button-wrapper {
+  text-align: center;
+}
 
 
 

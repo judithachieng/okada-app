@@ -6,8 +6,12 @@ import { RiderDetailsComponent} from './components/rider-details/rider-details.c
 import { UsersComponent } from './components/users/users.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { RidersFormComponent } from './components/riders-form/riders-form.component';
+import { DriveComponent } from './components/drive/drive.component';
+import { ClientComponent } from './components/client/client.component';
 
 const routes: Routes = [
+  { path: 'drive', component: DriveComponent, canActivate: [AuthGuard] },
+  { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
   { path: 'ridersform', component: RidersFormComponent, canActivate: [AuthGuard] },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path:  'riders/:id', component:  RiderDetailsComponent},
