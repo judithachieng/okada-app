@@ -60,7 +60,7 @@ import { constants } from 'os';
     BrowserAnimationsModule,
     MaterialModule
     AgmCoreModule.forRoot({
-      apiKey: constants
+      // apiKey: constants
     })
   ],
   entryComponents: [
