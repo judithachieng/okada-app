@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
 .container {
   width: 100%;
   margin: 0 auto;
@@ -19,33 +19,35 @@
 
 .container .header .search input {
   border-radius: 3px;
-  border: 1px solid #C6C0C0;
+  border: 1px solid #c6c0c0;
   padding: 8px;
   margin-right: 8px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .container .header .search button {
-  background: #FBDC8D;
+  background: #fbdc8d;
   border-radius: 3px;
-  color: #A431A7;
-  font-family: 'Roboto Mono', monospace;
+  color: #a431a7;
+  font-family: "Roboto Mono", monospace;
   font-style: normal;
   font-weight: 600;
   border: none;
+  width: 156px;
+  height: 42px;
+  margin: 10px;
+  font-size: 15px;
 }
-
-
 
 .container .riders {
   width: 80%;
   margin: 2% auto;
 }
 
-.container .riders .table-header{
+.container .riders .table-header {
   width: 100%;
   margin: 2% auto;
-  background: #A431A7;
+  background: #a431a7;
   display: flex;
   flex-direction: row;
 }
@@ -53,7 +55,7 @@
 .container .riders .table-header span {
   color: #fff;
   font-size: 18px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   padding: 10px;
   flex: auto;
 }
@@ -63,7 +65,7 @@
   margin: 0% auto;
   display: flex;
   flex-direction: row;
-  background: #F5F5F5;
+  background: #f5f5f5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
   margin-bottom: 11px;
@@ -72,7 +74,7 @@
 .container .riders .table-item span {
   color: #222;
   font-size: 18px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   padding: 10px;
   flex: auto;
   text-align: justify;
@@ -83,11 +85,11 @@
 }
 
 .mat-table {
-  font-family: 'Roboto Mono', monospace !important;;
+  font-family: "Roboto Mono", monospace !important;
 }
 
 .mat-header-row {
-  background: #A431A7 !important;
+  background: #a431a7 !important;
 }
 
 .mat-header-cell {
@@ -99,9 +101,6 @@
 }
 
 mat-footer-row mat-footer-cell {
-  justify-content:  center;
+  justify-content: center;
   font-style: italic;
 }
-
-
-

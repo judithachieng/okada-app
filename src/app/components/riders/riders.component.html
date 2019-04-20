@@ -2,8 +2,8 @@
 <div class = "container">
     <div class="header">
       <div class="search">
-        <input type="text" placeholder="Search" />
-        <button (click)="onCreate()">new rider</button>
+        <!-- <input type="text" placeholder="Search" /> -->
+        <button (click)="onCreate()">Add A New Rider</button>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
           </ng-container>
           <ng-container matColumnDef="gender">
               <mat-header-cell *matHeaderCellDef mat-sort-header>gender</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+              <mat-cell *matCellDef="let element">{{element.gender === 'M' ? 'Male' : 'Female'}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="license">
               <mat-header-cell *matHeaderCellDef mat-sort-header>license</mat-header-cell>
