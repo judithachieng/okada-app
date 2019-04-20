@@ -30,6 +30,7 @@ import { UsersFormComponent } from './components/users-form/users-form.component
 import { UsersModalService } from './components/shared/users-modal.service';
 import { DriveComponent } from './components/drive/drive.component';
 import { ClientComponent } from './components/client/client.component';
+import { constants } from 'os';
 
 
 @NgModule({
@@ -58,6 +59,9 @@ import { ClientComponent } from './components/client/client.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule
+    AgmCoreModule.forRoot({
+      apiKey: constants
+    })
   ],
   entryComponents: [
     RidersFormComponent,
