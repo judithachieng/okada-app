@@ -77,7 +77,7 @@ input:focus,
 button:focus{
   outline: 2px solid #A431A7;
 }
-.mat-icon-butto:focus
+.mat-icon-button:focus
 {
   outline: none;
 }
@@ -97,4 +97,19 @@ button:focus{
     font-size: 10px;
   }
 
+  input {
+    font-size: 14px;
+  }
+
+  .mat-select {
+    font-family:'Roboto Mono', monospace;
+  }
+  .mat-form-field {
+
+    font-weight: normal;
+    line-height: normal;
+}
+.mat-select-value-text {
+  padding-left: 15px;
+}
 

@@ -8,6 +8,10 @@ import { NotificationService } from '../shared/notification.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Constants } from 'src/app/constants';
 
+interface IDK {
+  valid: boolean;
+  rider?: any;
+}
 
 
 @Component({
@@ -43,13 +47,15 @@ export class RidersFormComponent implements OnInit {
         // this.ridersModalService.InitializeFormGroup();
         this.notificationService.success(':: Rider Added Successfully');
         this.onClose();
+      }, _err => {
+        this.notificationService.success(':: There was a problem adding data, please try again');
+        this.onClose();
       });
     }
   }
 
   onClose() {
     this.ridersModalService.form.reset();
-    // this.ridersModalService.InitializeFormGroup();
     this.dialogRef.close();
   }
 

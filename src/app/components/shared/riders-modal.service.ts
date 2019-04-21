@@ -37,4 +37,8 @@ export class RidersModalService {
       pinNumber: '****',
     });
   }
+
+  get rider() {
+    return this.form.value;
+  }
 }

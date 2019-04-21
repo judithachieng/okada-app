@@ -64,6 +64,7 @@ export class RidersComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.height = 'auto';
     this.dialog.open(RidersFormComponent, dialogConfig);
+
   }
 
   onEdit(rider) {
