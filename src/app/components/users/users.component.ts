@@ -12,6 +12,7 @@ import { NotificationService } from '../shared/notification.service';
 })
 export class UsersComponent implements OnInit {
 users: [];
+searchKey: string;
 
   constructor(
     private usersService: UsersService,
@@ -65,6 +66,14 @@ users: [];
     dialogConfig.autoFocus = true;
     dialogConfig.height = '70%';
     this.dialog.open(UsersFormComponent, dialogConfig);
+  }
+
+  applyFilter() {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
+
+  }
+  onSearchClear() {
+    this.searchKey = '';
   }
 
 }

@@ -1,35 +1,40 @@
 <h2>Add Rider</h2>
 <form [formGroup]="ridersModalService.form" class="normal-form" (ngSubmit)="onSubmit()">
   <div class="controls-container">
-    <!-- <mat-form-field> -->
-        <input type="text" formControlName="fullname"  placeholder="fullname">
-        <mat-error *ngIf="ridersModalService.form.controls['fullname'].errors?.required">This Field is Mandatory.</mat-error>
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
-        <input type="text" formControlName="gender"  placeholder="Gender">
-        <mat-error *ngIf="ridersModalService.form.controls['gender'].errors?.required">This Field is Mandatory.</mat-error>
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
+        <label for="fullname">Full Name*</label>
+        <input type="text" formControlName="fullname"  placeholder="Full Name">
+        <mat-error *ngIf="formSubmitted && ridersModalService.form.controls['fullname'].errors?.required">This Field is Mandatory.</mat-error>
+        <label for="gender">Gender*</label>
+        <mat-form-field floatLabel="never">
+            <mat-select  formControlName="gender" placeholder="Gender">
+                <ng-container *ngFor="let g of gender">
+                    <mat-option value="{{g.key}}">{{g.value}}</mat-option>
+                </ng-container>
+            </mat-select>
+        </mat-form-field>
+        <mat-error *ngIf="formSubmitted && ridersModalService.form.controls['gender'].errors?.required">This Field is Mandatory.</mat-error>
+        <label for="licenceId">Licence ID*</label>
         <input type="text" formControlName="licenseId"  placeholder="Licence Id">
-        <mat-error *ngIf="ridersModalService.form.controls['licenseId'].errors?.required">This Field is Mandatory.</mat-error>
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
-        <input type="text" formControlName="country"  placeholder="Country Code">
-        <mat-error *ngIf="ridersModalService.form.controls['country'].errors?.required">This Field is Mandatory.</mat-error>
-        <mat-error *ngIf="ridersModalService.form.controls['country'].errors?.maxLength">Maximum 2 characters.</mat-error>
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
+        <mat-error *ngIf="formSubmitted && ridersModalService.form.controls['licenseId'].errors?.required">This Field is Mandatory.</mat-error>
+        <label for="country">Country*</label>
+        <mat-form-field floatLabel="never">
+          <mat-select  formControlName="country" placeholder="Country">
+              <ng-container *ngFor="let c of country">
+                  <mat-option value="{{c.key}}">{{c.value}}</mat-option>
+              </ng-container>
+          </mat-select>
+          <mat-error *ngIf="formSubmitted && ridersModalService.form.controls['country'].errors?.required">This Field is Mandatory.</mat-error>
+        </mat-form-field>
+        <label for="msisdn">Phone*</label>
         <input type="text" formControlName="msisdn"  placeholder="Phone">
-        <mat-error *ngIf="ridersModalService.form.controls['msisdn'].errors?.required">This Field is Mandatory.</mat-error>
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
+        <mat-error *ngIf="formSubmitted && ridersModalService.form.controls['msisdn'].errors?.required">This Field is Mandatory.</mat-error>
+        <label for="pin Number">PIN Number*</label>
         <input type="text" formControlName="pinNumber"  placeholder="Pin Number">
-        <mat-error *ngIf="ridersModalService.form.controls['pinNumber'].errors?.required">This Field is Mandatory.</mat-error>
-        <mat-error *ngIf="ridersModalService.form.controls['pinNumber'].errors?.maxLength">Maximum 4 characters.</mat-error>
+        <mat-error *ngIf="formSubmitted && ridersModalService.form.controls['pinNumber'].errors?.required">This Field is Mandatory.</mat-error>
+        <mat-error *ngIf=" formSubmitted && ridersModalService.form.controls['pinNumber'].errors?.maxLength">Maximum 4 characters.</mat-error>
         <div class="button-row">
             <button mat-raised-button type="submit" class="add-button" [disabled]="ridersModalService.form.invalid">Add</button>
             <button type="button" class="cancel-button" (click)="onClose()">Cancel</button>
         </div>
-    <!-- </mat-form-field> -->
   </div>
 </form>

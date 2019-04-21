@@ -15,6 +15,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class MotoComponent implements OnInit {
 data: any;
 motos: [];
+searchKey: string;
 @Input() id;
   constructor(
     private  motoService: MotoService,
@@ -52,4 +53,11 @@ motos: [];
     this.dialog.open(MotoFormComponent, dialogConfig);
   }
 
+  applyFilter() {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
+
+  }
+  onSearchClear() {
+    this.searchKey = '';
+  }
 }

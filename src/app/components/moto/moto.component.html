@@ -1,3 +1,17 @@
+<div class="container">
+    <div class="header">
+      <div class="search">
+        <input
+          class="search-input"
+          type="search"
+          [(ngModel)]="searchKey"
+          placeholder="Search"
+          autocomplete="off"
+          (keyup)="applyFilter()"
+        />
+      </div>
+    </div>
+  </div>
 <div class="mat-elevation-z8">
     <mat-table [dataSource]="listData" matSort>
         <ng-container matColumnDef="motoMake">

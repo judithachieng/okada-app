@@ -25,7 +25,8 @@ export class RidersComponent implements OnInit {
  @ViewChild(MatPaginator) paginator: MatPaginator;
  riderUrl = this.constants.RIDERS_ROUTE;
  dialogref: MatDialogRef<EditFormComponent>;
-  tableData: any;
+ tableData: any;
+ searchKey: string;
 
   constructor(
           private riderService: RidersService,
@@ -41,6 +42,10 @@ export class RidersComponent implements OnInit {
     this.getRiders();
   }
 
+  // ngAfterViewInit() {
+  //   this.listData.sort = this.sort;
+  // }
+
   getRiders() {
     this.riderService.getRiders()
     .subscribe( data => {
@@ -49,10 +54,11 @@ export class RidersComponent implements OnInit {
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
     });
+
   }
 
   onCreate() {
-    this.ridersModalService.InitializeFormGroup();
+    // this.ridersModalService.InitializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -98,6 +104,13 @@ export class RidersComponent implements OnInit {
       });
 
     }
+  }
+  applyFilter() {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
+
+  }
+  onSearchClear() {
+    this.searchKey = '';
   }
 
 }

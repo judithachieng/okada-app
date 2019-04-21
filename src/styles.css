@@ -77,3 +77,24 @@ input:focus,
 button:focus{
   outline: 2px solid #A431A7;
 }
+.mat-icon-butto:focus
+{
+  outline: none;
+}
+
+.mat-sort-header-arrow {
+  color: #fff !important;
+  /* opacity: 1 !important; */
+  }
+
+  .search-input {
+    height: 42px;
+    margin: 11px;
+    font-size:14px;
+  }
+
+  label {
+    font-size: 10px;
+  }
+
+

@@ -27,6 +27,14 @@ export class Constants {
 
   // Form fields
 
-  MOTO_FORM_FIELDS = [ 'motoMake', 'numberPlate', 'motoColor', 'used', 'actions']
+  MOTO_FORM_FIELDS = [ 'motoMake', 'numberPlate', 'motoColor', 'used', 'actions'];
+  GENDER = [
+    {key: 'M', value: 'Male'},
+    {key: 'F', value: 'Female'},
+  ];
+  COUNTRY = [
+    {key: 'KE', value: 'Kenya'},
+    {key: 'GH', value: 'Ghana'},
+  ];
 
 }

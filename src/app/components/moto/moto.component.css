@@ -11,10 +11,47 @@
 }
 
 .mat-elevation-z8 {
-  margin: 94px 187px;
+  margin: 20px 185px;
 }
 
 mat-footer-row mat-footer-cell {
   justify-content:  center;
   font-style: italic;
+}
+
+container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container .header {
+  width: 80%;
+  margin: 2% auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.container .header .search {
+  display: flex;
+  flex-direction: row;
+}
+.container .header .search input {
+  border-radius: 3px;
+  border: 1px solid #C6C0C0;
+  padding: 8px;
+  margin-right: 8px;
+  font-family: 'Roboto Mono', monospace;
+}
+.container .header .search button {
+  background: #fbdc8d;
+  border-radius: 3px;
+  color: #a431a7;
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: 600;
+  border: none;
+  width: 156px;
+  height: 42px;
+  margin: 10px;
+  font-size: 15px;
 }

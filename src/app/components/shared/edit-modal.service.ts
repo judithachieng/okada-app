@@ -22,7 +22,7 @@ export class EditModalService {
 
   InitializeFormGroup() {
     this.form.setValue({
-    fullname: 'Jane Doe',
+    fullname: 'Full Name',
     gender: 'F',
     licenseId: 'KE-FG-67J',
     country: 'KE',
@@ -34,7 +34,11 @@ export class EditModalService {
     });
   }
   populateForm(rider) {
-    const DATE_OF_BIRTH = rider.dateOfBirth.split(" ")[0];
+    if  (rider.dateOfBirth) {
+      const DATE_OF_BIRTH = rider.dateOfBirth.split(' ')[0];
+    }
+    const DATE_OF_BIRTH = '28/12/1984';
+
     this.form.setValue({
       $key: rider.id,
       fullname: rider.fullname,

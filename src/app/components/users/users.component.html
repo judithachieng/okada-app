@@ -2,10 +2,11 @@
 <div class = "container">
     <div class="header">
       <div class="search">
-        <input type="text" placeholder="Search" />
-        <button (click)="onCreate()">new user</button>
+        <input class="search-input" type="search" [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()"/>
+        <button (click)="onCreate()">Add A New user</button>
       </div>
     </div>
+  </div>
 
     <div class="mat-elevation-z8">
       <mat-table [dataSource]="listData" matSort>
@@ -23,11 +24,13 @@
         </ng-container>
           <ng-container matColumnDef="gender">
               <mat-header-cell *matHeaderCellDef mat-sort-header>gender</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+              <mat-cell *matCellDef="let element">{{
+                  element.gender === "M" ? "Male" : "Female"
+                }}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="country">
             <mat-header-cell *matHeaderCellDef mat-sort-header>country</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.country}}</mat-cell>
+            <mat-cell *matCellDef="let element">{{element.country === "GH" ? "Ghana" : "Kenya"}}</mat-cell>
         </ng-container>
           <ng-container matColumnDef="phone">
               <mat-header-cell *matHeaderCellDef mat-sort-header>phone</mat-header-cell>
@@ -62,4 +65,4 @@
         </mat-table>
         <mat-paginator [pageSizeOptions]="[5,10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
     </div>
-</div>
+

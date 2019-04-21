@@ -12,21 +12,21 @@ export class RidersModalService {
     fullname: new FormControl('', Validators.required),
     gender: new FormControl('', Validators.required),
     licenseId: new FormControl('', Validators.required),
-    country: new FormControl('', [Validators.required, Validators.maxLength(2)]),
+    country: new FormControl('', Validators.required),
     msisdn: new FormControl('', Validators.required),
     pinNumber: new FormControl('', [Validators.required, Validators.maxLength(4)]),
   });
 
-  InitializeFormGroup() {
-    this.form.setValue({
-    fullname: 'Jane Doe',
-    gender: 'F',
-    licenseId: 'KE-FG-67J',
-    country: 'KE',
-    msisdn: '+254786000000',
-    pinNumber: '1234'
-    });
-  }
+  // InitializeFormGroup() {
+  //   this.form.setValue({
+  //   fullname: 'Jane Doe',
+  //   gender: 'F',
+  //   licenseId: 'KE-FG-67J',
+  //   country: 'KE',
+  //   msisdn: '+254786000000',
+  //   pinNumber: '1234'
+  //   });
+  // }
   populateForm(rider) {
     this.form.setValue({
       fullname: rider.fullname,

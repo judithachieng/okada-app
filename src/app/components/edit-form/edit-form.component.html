@@ -2,40 +2,46 @@
 <form [formGroup]="editModalService.form" class="normal-form" (ngSubmit)="onSubmit()">
     <div class="controls-container">
         <input type="hidden" formControlName="$key">
-      <!-- <mat-form-field> -->
+        <label for="fullname">Full Name*</label>
           <input type="text" formControlName="fullname"  placeholder="fullname">
           <mat-error *ngIf="editModalService.form.controls['fullname'].errors?.required">This Field is Mandatory.</mat-error>
-      <!-- </mat-form-field> -->
-      <!-- <mat-form-field> -->
-          <input type="text" formControlName="gender"  placeholder="Gender">
-          <mat-error *ngIf="editModalService.form.controls['gender'].errors?.required">This Field is Mandatory.</mat-error>
-      <!-- </mat-form-field> -->
-      <!-- <mat-form-field> -->
+          <label for="gender">Gender*</label>
+          <mat-form-field floatLabel="never">
+              <mat-select  formControlName="gender" placeholder="Gender">
+                  <ng-container *ngFor="let g of gender">
+                      <mat-option value="{{g.key}}">{{g.value}}</mat-option>
+                  </ng-container>
+              </mat-select>
+          </mat-form-field>
+          <mat-error *ngIf="formSubmitted && editModalService.form.controls['gender'].errors?.required">This Field is Mandatory.</mat-error>
+          <label for="licenceId">Licence ID*</label>
           <input type="text" formControlName="licenseId"  placeholder="Licence Id">
           <mat-error *ngIf="editModalService.form.controls['licenseId'].errors?.required">This Field is Mandatory.</mat-error>
-      <!-- </mat-form-field> -->
-      <!-- <mat-form-field> -->
-          <input type="text" formControlName="country"  placeholder="Country Code">
-          <mat-error *ngIf="editModalService.form.controls['country'].errors?.required">This Field is Mandatory.</mat-error>
-          <mat-error *ngIf="editModalService.form.controls['country'].errors?.maxLength">Maximum 2 characters.</mat-error>
-      <!-- </mat-form-field> -->
-      <!-- <mat-form-field> -->
+          <label for="country">Country*</label>
+          <mat-form-field floatLabel="never">
+              <mat-select  formControlName="country" placeholder="Country">
+                  <ng-container *ngFor="let c of country">
+                      <mat-option value="{{c.key}}">{{c.value}}</mat-option>
+                  </ng-container>
+              </mat-select>
+              <mat-error *ngIf="formSubmitted && editModalService.form.controls['country'].errors?.required">This Field is Mandatory.</mat-error>
+            </mat-form-field>
+          <label for="msisdn">Phone*</label>
           <input type="text" formControlName="msisdn"  placeholder="Phone">
           <mat-error *ngIf="editModalService.form.controls['msisdn'].errors?.required">This Field is Mandatory.</mat-error>
-      <!-- </mat-form-field> -->
-        <!-- <mat-form-field> -->
-          <input type="date" formControlName="dateOfBirth"  placeholder="Date of Birth">
+          <label for="dateOfBirth">Date Of Birth*</label>
+          <input type="date" formControlName="dateOfBirth"  placeholder="28/12/2019">
           <mat-error *ngIf="editModalService.form.controls['dateOfBirth'].errors?.required">This Field is Mandatory.</mat-error>
-        <!-- </mat-form-field> -->
+          <label for="address">Address*</label>
           <input type="text" formControlName="address"  placeholder="address">
           <mat-error *ngIf="editModalService.form.controls['address'].errors?.required">This Field is Mandatory.</mat-error>
+          <label for="postalBox">Postal Address*</label>
           <input type="text" formControlName="postalBox"  placeholder="Postal Box">
           <mat-error *ngIf="editModalService.form.controls['postalBox'].errors?.required">This Field is Mandatory.</mat-error>
           <div class="button-row">
-              <button type="submit" class="add-button" >Add</button>
+              <button type="submit" class="add-button" >Update</button>
               <button type="button" class="cancel-button" (click)="onClose(this.editModalService.form.get('$key').value)">Cancel</button>
           </div>
-
     </div>
   </form>
 

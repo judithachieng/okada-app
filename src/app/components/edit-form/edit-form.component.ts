@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material';
 import { EditModalService } from '../shared/edit-modal.service';
 import { RidersService } from 'src/app/_services/riders/riders.service';
 import { NotificationService } from '../shared/notification.service';
+import { Constants } from 'src/app/constants';
 
 interface IDK {
   valid: boolean;
@@ -17,19 +18,24 @@ interface IDK {
   styleUrls: ['./edit-form.component.css']
 })
 export class EditFormComponent implements OnInit {
+  formSubmitted = false;
+  gender = this.constants.GENDER;
+  country = this.constants.COUNTRY;
 
   constructor(
     public editModalService: EditModalService,
     private ridersService: RidersService,
     private router: Router,
     public dialogRef: MatDialogRef<EditFormComponent>,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private constants: Constants,
   ) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
+    this.formSubmitted = true;
     this.ridersService.updateRider(this.editModalService.form.get('$key').value, this.editModalService.form.value).subscribe((data: {}) => {
     this.notificationService.success(':: Rider Updated Successfully');
     this.onClose({valid: true, rider: this.editModalService.rider});

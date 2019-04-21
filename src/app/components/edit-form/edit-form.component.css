@@ -50,3 +50,21 @@ h2 {
   text-align: center;
   margin: 0;
 }
+
+::ng-deep .mat-form-field-underline {
+  display: none !important;
+}
+::ng-deep .mat-form-field-infix
+ {
+  border: 1px solid #BFBCBC !important;
+  border-radius: 3px;
+  width : 270px;
+}
+label {
+  display: block !important;
+  color: #a431a7 ;
+}
+.mat-form-field{
+  font-family: 'Roboto Mono', monospace;
+
+}
