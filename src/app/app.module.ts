@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material-module/material.module';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -30,7 +31,7 @@ import { UsersFormComponent } from './components/users-form/users-form.component
 import { UsersModalService } from './components/shared/users-modal.service';
 import { DriveComponent } from './components/drive/drive.component';
 import { ClientComponent } from './components/client/client.component';
-import { constants } from 'os';
+
 
 
 @NgModule({
@@ -58,9 +59,10 @@ import { constants } from 'os';
     AngularFontAwesomeModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
     AgmCoreModule.forRoot({
-      // apiKey: constants
+      apiKey : 'AIzaSyCGnDVSfQyiAnHrl7rtXDWyVKB25T2K0R4',
+      libraries:  ['places']
     })
   ],
   entryComponents: [
@@ -85,4 +87,6 @@ import { constants } from 'os';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

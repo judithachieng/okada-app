@@ -1,10 +1,10 @@
-<div class="nav-bar">
-  <div class="nav-container">
+<div class="nav-bar" [ngClass]="{active: router.url == '/client' || router.url == '/drive'}">
+  <div class="nav-container" >
       <div class="logo"></div>
       <div class="nav">
-        <a [routerLink]="['/users']" routerLinkActive="active-link" >users</a>
-        <a [routerLink]="['/riders']"  routerLinkActive="active-link" >riders</a>
-        <a [routerLink]="['/login']"  (click)="logout()" routerLinkActive="active-link">logout</a>
+        <a [hidden]="router.url == '/client' || router.url == '/drive' " [routerLink]="['/users']" routerLinkActive="active-link" >users</a>
+        <a [hidden]="router.url == '/client' || router.url == '/drive' " [routerLink]="['/riders']"  routerLinkActive="active-link" >riders</a>
+        <a [routerLink]="['/login']" [ngClass]="{white: router.url == '/client' || router.url == '/drive'}"  (click)="logout()" routerLinkActive="active-link">logout</a>
       </div>
   </div>
 </div>

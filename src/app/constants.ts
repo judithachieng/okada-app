@@ -12,6 +12,8 @@ export class Constants {
   LOGIN: string = this.baseUrl + 'acl/token';
   RIDERS: string = this.baseUrl + 'riders';
   USERS: string = this.baseUrl + 'users' ;
+  CLIENTS: string = this.baseUrl + 'clients';
+  RIDERS_LOCATION_SEARCH: string = this.baseUrl + '/api/riders/locations/search';
   // MOTOS: string = this.baseUrl + this.id + '/motos';
 
   // ROUTE NAMES
@@ -38,5 +40,9 @@ export class Constants {
     {key: 'KE', value: 'Kenya'},
     {key: 'GH', value: 'Ghana'},
   ];
+
+  // Google Maps
+
+  GOOGLE_API_KEY = 'AIzaSyCGnDVSfQyiAnHrl7rtXDWyVKB25T2K0R4';
 
 }

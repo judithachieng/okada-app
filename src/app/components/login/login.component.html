@@ -12,26 +12,19 @@
         <div *ngIf="formSubmitted && formFields.password.errors" class="invalid-feedback">
             <div *ngIf="formFields.password.errors.required">Password is required</div>
         </div>
+        <div class="form-group">
+          <select  formControlName="userType" (change)="getUserValue($event.target.value)" id="userOptions" class="form-control" [ngClass]="{ 'is-invalid': formSubmitted && formFields.userType.errors }" >
+              <option value="" disabled selected>Select a user type</option>
+              <option *ngFor="let user of userOptions" [value]="user">{{user}}</option>
+          </select>
+          <div *ngIf="formSubmitted && formFields.userType.errors" class="invalid-feedback">
+              <div *ngIf="formFields.userType.errors.required">User type is required</div>
+          </div>
+        </div>
       </div>
       <div class="form-group button-wrapper">
-        <button type="submit" class="btn" (click)="isAdmin = true">
-            <p *ngIf="!isLoading" >Admin Login</p>
-            <div *ngIf="isLoading" class="spinner">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
-            </div>
-        </button>
-        <button type="submit" class="btn" (click)="isClient = true">
-          <p *ngIf="!isLoading">Ride</p>
-          <div *ngIf="isLoading" class="spinner">
-              <div class="bounce1"></div>
-              <div class="bounce2"></div>
-              <div class="bounce3"></div>
-          </div>
-      </button>
       <button type="submit" class="btn" (click)="isRider = true">
-        <p *ngIf="!isLoading">Drive</p>
+        <p *ngIf="!isLoading">Login</p>
         <div *ngIf="isLoading" class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>

@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   isAdmin = false;
   isClient = false;
   isRider = false;
+  userOptions = ['Admin', 'Rider', 'Client'];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      userType: ['', Validators.required]
     });
 
     // this.authService.logout();
@@ -56,25 +58,29 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.formFields.username.value, this.formFields.password.value)
             .subscribe(
-
                 data => {
                     this.isLoading = false;
                     if (this.isAdmin) {
-                      this. isAdmin = false;
                       this.router.navigate([this.constants.RIDERS_ROUTE]);
                     } else if (this.isClient) {
-                       this. isClient = false;
                        this.router.navigate([this.constants.CLIENT_ROUTE]);
-                    } else {
-                      this. isRider = false;
+                    } else if (this.isRider) {
                       this.router.navigate([this.constants.DRIVE_ROUTE]);
                     }
                 },
                 error => {
                     this.isLoading = false;
                     this.error = error;
-
                 });
 
+  }
+  getUserValue(val) {
+    if (val === 'Admin') {
+      this.isAdmin = true;
+    } else if (val === 'Client') {
+        this.isClient = true;
+    } else if (val === 'Rider') {
+      this.isRider = true;
+    }
   }
 }
