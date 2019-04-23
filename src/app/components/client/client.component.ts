@@ -65,7 +65,7 @@ export class ClientComponent implements OnInit {
   }
 
 
-  markerDragEnd($event: MouseEvent) {
+  markerDragEnd($event: any) {
     console.log($event);
     this.latitude = $event.coords.lat;
     this.longitude = $event.coords.lng;
