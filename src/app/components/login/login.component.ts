@@ -7,6 +7,7 @@ import { Constants } from 'src/app/constants';
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,6 +18,10 @@ export class LoginComponent implements OnInit {
   formSubmitted = false;
   error: any;
   isLoading = false;
+  isAdmin = false;
+  isClient = false;
+  isRider = false;
+  userOptions = ['Admin', 'Rider', 'Client'];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,7 +35,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      userType: ['', Validators.required]
     });
 
     // this.authService.logout();
@@ -52,17 +58,29 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.formFields.username.value, this.formFields.password.value)
             .subscribe(
-
                 data => {
                     this.isLoading = false;
-                    this.router.navigate(['/riders']);
-                    console.log('tuko');
+                    if (this.isAdmin) {
+                      this.router.navigate([this.constants.RIDERS_ROUTE]);
+                    } else if (this.isClient) {
+                       this.router.navigate([this.constants.CLIENT_ROUTE]);
+                    } else if (this.isRider) {
+                      this.router.navigate([this.constants.DRIVE_ROUTE]);
+                    }
                 },
                 error => {
                     this.isLoading = false;
                     this.error = error;
-                    console.log('tuko', error);
                 });
 
+  }
+  getUserValue(val) {
+    if (val === 'Admin') {
+      this.isAdmin = true;
+    } else if (val === 'Client') {
+        this.isClient = true;
+    } else if (val === 'Rider') {
+      this.isRider = true;
+    }
   }
 }

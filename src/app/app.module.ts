@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material-module/material.module';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -28,6 +29,9 @@ import { MotoFormComponent } from './components/moto-form/moto-form.component';
 import { MotoModalService } from './components/shared/moto-modal.service';
 import { UsersFormComponent } from './components/users-form/users-form.component';
 import { UsersModalService } from './components/shared/users-modal.service';
+import { DriveComponent } from './components/drive/drive.component';
+import { ClientComponent } from './components/client/client.component';
+
 
 
 @NgModule({
@@ -43,6 +47,8 @@ import { UsersModalService } from './components/shared/users-modal.service';
     MotoComponent,
     MotoFormComponent,
     UsersFormComponent,
+    DriveComponent,
+    ClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,11 @@ import { UsersModalService } from './components/shared/users-modal.service';
     AngularFontAwesomeModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    AgmCoreModule.forRoot({
+      apiKey : 'AIzaSyCGnDVSfQyiAnHrl7rtXDWyVKB25T2K0R4',
+      libraries:  ['places']
+    })
   ],
   entryComponents: [
     RidersFormComponent,
@@ -77,4 +87,6 @@ import { UsersModalService } from './components/shared/users-modal.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

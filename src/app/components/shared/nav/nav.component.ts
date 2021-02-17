@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   // currentUser: this.authService.;
 
   constructor(
-    private router: Router,
+    public router: Router,
     private authService: AuthService
   ) {
     // this.authService.currentUser.subscribe( data => this.currentUser = data

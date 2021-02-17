@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSelectModule } from '@angular/material';
 
 import { RidersModalService } from '../shared/riders-modal.service';
 import { RidersService } from 'src/app/_services/riders/riders.service';

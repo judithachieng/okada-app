@@ -30,3 +30,12 @@ justify-self: end;
 .active-link {
   color: #A431A7;
 }
+
+.active {
+  background: #A431A7;
+  width: 100%;
+  margin: 0 auto;
+}
+.white{
+  color: white;
+}

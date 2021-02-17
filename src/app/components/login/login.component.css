@@ -40,6 +40,8 @@ input[type=text], input[type=password] {
   border: none;
   border-radius: 2px;
   background: white;
+  font-size: 14px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .btn {
@@ -51,12 +53,35 @@ input[type=text], input[type=password] {
   opacity: 0.9;
   color:#FBDC8D;
   border-radius: 3px;
+  margin: 10px;
+  width: 166px;
 }
 
 .btn p{
-  font-size: inherit;
+  font-size: 14px;
+  font-family: 'Roboto Mono', monospace;
 }
 
+.button-wrapper {
+  text-align: center;
+}
 
+select {
+  width: 244px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  border-radius: 2px;
+  background: white;
+  height: 45px;
+  font-size: 14px;
+  font-family: 'Roboto Mono', monospace;
+}
+select:focus {
+  outline: none;
+}
+.invalid-feedback {
+  color: red;
+}
 
 
